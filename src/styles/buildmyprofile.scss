@@ -1,0 +1,71 @@
+.profile-div{
+    background-color:   rgb(250,225,184);
+    padding: 2rem ;
+    .profile-details{
+       
+        display: grid;
+        gap: 1rem;
+        column-gap: 18rem;
+        grid-template-columns: repeat(2, 1fr);
+       
+        border-radius: 1%;
+      .no1{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+       input{
+        width: 18rem;
+        height: 2.5rem;
+       }
+       textarea{
+        width: 18rem;
+        height: 6rem;
+       }
+      }
+    }
+    .update{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 1rem;
+        button{
+            background-color: rgb(244,179,74);
+            color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            border: none;
+            padding: 0.5rem;
+            font-size: 1.2rem;
+            border-radius: 3%;
+            box-shadow: 0.1rem 0.1rem 0.4rem;
+        }
+       
+    }
+}
+
+.profile-container{
+    background-color:   rgb(250,225,184);
+}
+
+.profile-dropdown{
+    position: absolute;
+    top: 13%;
+    right: 1%;
+  
+    ul{
+      list-style: none;
+      line-height: 2rem;
+      background-color: rgb(239, 195, 123);
+      padding: 0.4rem;
+      border-radius: 2%;
+      li{
+        font-size: 1rem;
+        padding: 0.2rem;
+        font-family: 500;
+        cursor: pointer;
+        &:hover{
+          background-color: rgb(240, 217, 178);
+        }
+      }
+    }
+  }

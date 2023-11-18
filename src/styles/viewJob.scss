@@ -1,0 +1,30 @@
+label{
+    font-size: 0.9rem;
+    color: rgb(94, 91, 91);
+    font-weight: 600;
+}
+
+p{
+    font-size: 1.15rem;
+}
+.h6{
+    font-weight: 500;
+}
+.card-profile{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    column-gap: 1.5rem;
+   
+       p{
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        background-color: rgb(219, 169, 89);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: 500;
+       }
+      }
