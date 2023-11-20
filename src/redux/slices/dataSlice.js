@@ -23,7 +23,8 @@ const dataSlice = createSlice({
       company: {},
       companyJobs : [],
       postSaveJob :{},
-      getsaveJob:{},
+      getSavedJob:[],
+      followcompany:{} 
       
     },
   },
@@ -158,14 +159,23 @@ const dataSlice = createSlice({
       state.error = action.error;
     });
 
-    builder.addCase(getSaveJob.fulfilled, (state, action) => {
-     console.log(action.payload);
-      state.value.getsaveJob = action.payload;
+    builder.addCase(getSavedJob.fulfilled, (state, action) => {
+    //  console.log(action.payload);
+      state.value.getSavedJob = action.payload;
     });
 
-    builder.addCase(getSaveJob.rejected, (state, action) => {
+    builder.addCase(getSavedJob.rejected, (state, action) => {
       state.error = action.error;
     });
+
+    builder.addCase(followCompany.fulfilled, (state, action) => {
+      console.log(action.payload);
+       state.value.followcompany = action.payload;
+     });
+ 
+     builder.addCase(followCompany.rejected, (state, action) => {
+       state.error = action.error;
+     });
 
   },
 });
@@ -184,19 +194,25 @@ export const postSaveJob = createAsyncThunk("postSaveJob", async ({userId,jobId}
 
 
 
-export const getSaveJob = createAsyncThunk("getSaveJob", async ({userId}) => {  
+export const getSavedJob = createAsyncThunk("getSavedJob", async ({userId}) => {  
   
-  const data = await axios.post(baseUrl + `/jobs/savejob/${userId}`,{
-    headers: {
-      Authorization: "Bearer "+localStorage.getItem("token")
-    }
-
+  const {data} = await axios.get(baseUrl +"/jobs/savedJobs/All/" + userId,{
   }) 
   return data;
     
-
-
 });
+
+export const followCompany  = createAsyncThunk("followCompany", async ({userId,companyId}) => {
+
+  const data = await axios.post(baseUrl +`/company/followcompany/${companyId}`,userId,{
+    headers: {
+      Authorization: "Bearer "+ localStorage.getItem("token")
+    }
+  }) 
+  return data;
+    
+}); 
+
 
 
 

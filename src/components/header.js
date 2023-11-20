@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useMatch, useMatches, useNavigate } from 'react-router-dom';
-import { getAllJobs, getSaveJob } from '../redux/slices/dataSlice';
+import { getAllJobs} from '../redux/slices/dataSlice';
 import { GoSearch } from "react-icons/go";
 import { useDispatch } from 'react-redux';
 function Header() {
@@ -24,9 +24,6 @@ function Header() {
       const matches = useMatches();
 
 
-      useEffect(()=>{
-        dispatch(getSaveJob())
-      },[])
   return (
  
         <div className="home-container ">

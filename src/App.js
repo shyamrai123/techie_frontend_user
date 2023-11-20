@@ -12,7 +12,7 @@ import ViewJob from "./components/viewJob";
 import Front from "./components/startingPage";
 import Ifollow from "./components/ifollow";
 import ViewCompany from "./components/viewCompany";
-import SaveJob from "./components/saveJob";
+import SavedJob from "./components/savedJob";
 
 function App() {
   const router = createBrowserRouter([
@@ -60,7 +60,7 @@ function App() {
 
     {
       path : "savejob/:userId",
-      element: <SaveJob/>
+      element: <SavedJob/>
     }
   ]);
   return (

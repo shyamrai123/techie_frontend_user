@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCompanyJobs, getOneCompany } from "../redux/slices/dataSlice";
-import { Link, useMatches } from "react-router-dom";
+import { followCompany, getCompanyJobs, getOneCompany } from "../redux/slices/dataSlice";
+import { Link, useMatches, useParams } from "react-router-dom";
 import Header from "./header";
 import "../styles/home.scss"
 import { BsBookmark,BsArrowRight } from "react-icons/bs";
@@ -10,10 +10,19 @@ const ViewCompany = () => {
   const companyJobs = useSelector((state) => state.User.value.companyJobs);
   const dispatch = useDispatch();
   const params = useMatches();
+  console.log(params);
+  const companyId = localStorage.getItem("companyId");
+  const userId = localStorage.getItem("userId");
+
+
  
   useEffect(() => {
     dispatch(getOneCompany({ cid: params[0].params.cid }));
   }, []);
+
+  const handlefollowCompany=()=>{
+       dispatch(followCompany({userId : userId,companyId :params[0].params.cid}))
+  }
   return (
     <div>
       <Header />
@@ -22,7 +31,7 @@ const ViewCompany = () => {
           <div>i-Follow / {company._id && company.company_name}</div>
           <div style={{ cursor: "pointer" }}>
             <BsBookmark />{" "}
-            <span className="text-decoration-underline">Follow</span>
+            <button onClick={handlefollowCompany} className="text-decoration-underline">Follow</button>
           </div>
         </div>
         <div className="h2">{company && company.company_name}</div>
