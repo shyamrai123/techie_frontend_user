@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
  import { getSavedJob } from '../redux/slices/dataSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useParams } from 'react-router-dom';
+import { Link, useMatches, useParams } from 'react-router-dom';
 import Header from './header';
 import {BsArrowRight} from "react-icons/bs"
 
@@ -12,6 +12,7 @@ const SavedJob = () => {
   const saveJobState = useSelector((state)=>state.User.value.getSavedJob);
   const dispatch = useDispatch();
   const params = useParams();
+
   console.log(saveJobState);
 
   console.log(params);
@@ -25,7 +26,7 @@ const SavedJob = () => {
      <div className="homePage-cards-container container bg-light  ">
        {saveJobState.length &&
          saveJobState.map((e) => {
-          console.log(e);
+ 
            return (
              <div className="card-container  shadow p-1 mb-2 bg-body rounded ">
                <div className="card-container-01 ">

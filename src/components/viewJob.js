@@ -21,6 +21,7 @@ function ViewJob() {
 
 
   const params = useMatches();
+  
   useEffect(() => {
     dispatch(getJob({ jobId: params[0].params.jobId }));
 

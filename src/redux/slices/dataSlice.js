@@ -24,13 +24,15 @@ const dataSlice = createSlice({
       companyJobs : [],
       postSaveJob :{},
       getSavedJob:[],
-      followcompany:{} 
+      followcompany:{} ,
+      getfollowedcompany:[],
+      searchedContent :""
       
     },
   },
 
   reducers: {
-     
+   
   },
 
   extraReducers: (builder) => {
@@ -177,6 +179,16 @@ const dataSlice = createSlice({
        state.error = action.error;
      });
 
+     
+    builder.addCase(getUserFollowedCompany.fulfilled, (state, action) => {
+      console.log(action.payload);
+       state.value.getfollowedcompany = action.payload;
+     });
+ 
+     builder.addCase(getUserFollowedCompany.rejected, (state, action) => {
+       state.error = action.error;
+     });
+
   },
 });
 
@@ -202,9 +214,11 @@ export const getSavedJob = createAsyncThunk("getSavedJob", async ({userId}) => {
     
 });
 
+
+
 export const followCompany  = createAsyncThunk("followCompany", async ({userId,companyId}) => {
 
-  const data = await axios.post(baseUrl +`/company/followcompany/${companyId}`,userId,{
+  const {data} = await axios.post(baseUrl +`/company/followcompany/${companyId}`,userId,{
     headers: {
       Authorization: "Bearer "+ localStorage.getItem("token")
     }
@@ -212,6 +226,16 @@ export const followCompany  = createAsyncThunk("followCompany", async ({userId,c
   return data;
     
 }); 
+
+
+export const getUserFollowedCompany  = createAsyncThunk("getfollowedCompany", async ({userId}) => {
+
+  const {data} = await axios.get(baseUrl + "/company/getfollowedcompany/"+ userId ,{
+
+  }) 
+  return data;
+    
+});
 
 
 
@@ -344,4 +368,4 @@ export const postCompany = createAsyncThunk("postCompany", async (arg) => {
 });
 
 export default dataSlice.reducer;
-const{saveJob} = dataSlice.actions
+export const{saveJob,handleSearch } = dataSlice.actions;

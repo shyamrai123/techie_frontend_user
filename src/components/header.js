@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useMatch, useMatches, useNavigate } from 'react-router-dom';
-import { getAllJobs} from '../redux/slices/dataSlice';
+import { getAllJobs,} from '../redux/slices/dataSlice';
 import { GoSearch } from "react-icons/go";
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
+
+
 function Header() {
     const token = localStorage.getItem("token");
     const email = localStorage.getItem("email");
     const userId = localStorage.getItem("userId");
+   const searchData = useSelector((state) => state.User.value.jobData);
+
+  
     const [open, setOpen] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -21,8 +26,17 @@ function Header() {
         }
       }, [token]);
 
-      const matches = useMatches();
+     const handleSearch = (res)=>{
+      // const filterSearch =  jobData.filter((job)=>{
+      //   job.company_name && job.company_name.toUpperCase().includes(res.toUpperCase());
+      // })
+        // searchData(filterSearch)
+        console.log("sdfghnjm");
+    
 
+     }
+
+     console.log(searchData);
 
   return (
  
@@ -39,12 +53,14 @@ function Header() {
             <div>
               <input
                 className=" border-0 searchbar"
+           
                 placeholder="Search by Designation/KeyWord"
+                
               />
             </div>
-            <div className="h4 pt-1">
+            <button className="h4 pt-1" onClick={handleSearch}>
               <GoSearch className="" />
-            </div>
+            </button>
           </div>
           <div style={{ cursor: "pointer" }} onClick={() => navigate("/home")}>
             Jobs
