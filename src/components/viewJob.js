@@ -13,6 +13,7 @@ function ViewJob() {
   const userId = localStorage.getItem("userId")
   const getJobDetails = useSelector((state) => state.User.value.getJobDetails);
   const postJobState = useSelector((state)=>state.User.value.postSaveJob);
+
   console.log(postJobState);
 
   

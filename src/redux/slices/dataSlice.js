@@ -26,13 +26,16 @@ const dataSlice = createSlice({
       getSavedJob:[],
       followcompany:{} ,
       getfollowedcompany:[],
-      searchedContent :""
+      searchData  : []
+      
       
     },
   },
 
   reducers: {
-   
+     handleSearch  :(state,action)=>{
+      state.value.searchData  = action.payload;
+     }
   },
 
   extraReducers: (builder) => {
@@ -189,6 +192,18 @@ const dataSlice = createSlice({
        state.error = action.error;
      });
 
+
+         
+    builder.addCase(serchAllJobs.fulfilled, (state, action) => {
+      console.log(action.payload);
+       state.value.searchData = action.payload;
+     });
+ 
+     builder.addCase(serchAllJobs.rejected, (state, action) => {
+       state.error = action.error;
+     });
+
+
   },
 });
 
@@ -254,6 +269,14 @@ export const getAllJobs = createAsyncThunk("getAllJObs", async (args) => {
   const { data } = await axios.get(baseUrl + "/jobs/getAll");
   return data;
 });
+
+
+export const serchAllJobs = createAsyncThunk("searchAllJObs", async (args) => {
+  const { data } = await axios.get(baseUrl + "/jobs/getAll");
+  return data;
+});
+
+
 export const deleteJob = createAsyncThunk("deleteJob", async ({ jobId }) => {
   console.log(jobId);
   const token = localStorage.getItem("token");

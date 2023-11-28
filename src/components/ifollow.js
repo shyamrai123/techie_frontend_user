@@ -37,7 +37,7 @@ function Ifollow() {
               return(
                 <div className="  border p-2  shadow  mb-2 bg-body rounded ">
                 <div className="d-flex justify-content-start ">
-                <div style={{ }} >
+                <div style={{}}>
                     <p style={{backgroundColor:"#"+Math.floor(Math.random()*16777215).toString(16),
                     width:"3rem",height:"3rem",border:"1px solid", borderRadius:"50%"
                     , display:"flex",justifyContent:"center",alignItems:"center"
@@ -45,6 +45,7 @@ function Ifollow() {
                       {e.value.company_name.slice(0, 2).toUpperCase()}
                       </p>
                   </div>
+                  
                   <div >
                   <div className="ms-2"><b>{e.value.company_name}</b></div>
                  <div className="ms-2">{e.value.email}</div>

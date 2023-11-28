@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useMatch, useMatches, useNavigate } from 'react-router-dom';
-import { getAllJobs,} from '../redux/slices/dataSlice';
+import { getAllJobs} from '../redux/slices/dataSlice';
 import { GoSearch } from "react-icons/go";
 import { useDispatch,useSelector } from 'react-redux';
 
@@ -9,9 +9,8 @@ function Header() {
     const token = localStorage.getItem("token");
     const email = localStorage.getItem("email");
     const userId = localStorage.getItem("userId");
-   const searchData = useSelector((state) => state.User.value.jobData);
-
-  
+    
+    
     const [open, setOpen] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -24,19 +23,16 @@ function Header() {
           navigate("/accounts/login");
           window.location.reload();
         }
+
+        dispatch(getAllJobs);
       }, [token]);
 
-     const handleSearch = (res)=>{
-      // const filterSearch =  jobData.filter((job)=>{
-      //   job.company_name && job.company_name.toUpperCase().includes(res.toUpperCase());
-      // })
-        // searchData(filterSearch)
-        console.log("sdfghnjm");
-    
 
+     const handleSearch = (res)=>{
+           
      }
 
-     console.log(searchData);
+
 
   return (
  
@@ -104,6 +100,7 @@ function Header() {
               Log Out
             </li>
           </ul>
+          
         </div>
       </div>
    

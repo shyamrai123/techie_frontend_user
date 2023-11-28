@@ -12,7 +12,9 @@ import ViewJob from "./components/viewJob";
 import Front from "./components/startingPage";
 import Ifollow from "./components/ifollow";
 import ViewCompany from "./components/viewCompany";
-import SavedJob from "./components/savedJob";
+import SavedJob from "./components/savedJob"
+
+import Filter from "./components/filter";
 
 function App() {
   const router = createBrowserRouter([
@@ -61,7 +63,13 @@ function App() {
     {
       path : "savejob/:userId",
       element: <SavedJob/>
+    },
+
+    {
+      path:'/filter',
+      element:<Filter/>
     }
+   
   ]);
   return (
     <div className="App">
