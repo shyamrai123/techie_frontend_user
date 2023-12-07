@@ -6,7 +6,7 @@
 
 .imagediv{
      width: 50%;
-     height: 100vh;
+     height: 48em;
 }
 
 .imagediv img{
@@ -15,6 +15,24 @@
     background-size: contain;
 }
 
+.login
+{
+    color:white;
+    margin-left: 3em;
+    cursor: pointer;
+    &:hover{
+        color:green;
+    }
+}
+.register{
+    color:white;
+    margin-left:0em;
+    cursor: pointer;
+    width:20em;
+    &:hover{
+        color:green;
+    }
+}
 .formDiv{
     width: 50%;
     display: flex;
@@ -22,6 +40,26 @@
     align-items: center;
 }
 
+.formDiv {
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    height:48em;
+    /* width:100%; */
+    margin-top: -0.5em;
+    background:url('https://drive.google.com/uc?export=view&id=1euiZNblW9OrIXz8kqz-NOqYdGH84oktG') no-repeat;
+    background-size:cover;
+    background-position:center;
+    animation:animateBg 5s linear infinite;
+  }
+
+  @keyframes animateBg {
+    100% {
+      filter:hue-rotate(360deg);
+    }
+  }
+
 Form{
     width: 50%;
+    
 }

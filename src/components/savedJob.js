@@ -5,8 +5,6 @@ import { Link, useMatches, useParams } from 'react-router-dom';
 import Header from './header';
 import {BsArrowRight} from "react-icons/bs"
 
-
-
 const SavedJob = () => {
 
   const saveJobState = useSelector((state)=>state.User.value.getSavedJob);
@@ -137,4 +135,4 @@ const SavedJob = () => {
   )
 }
 
-export default SavedJob
+export default SavedJob;

@@ -1,56 +1,23 @@
-import { useEffect, useState } from "react";
-import "../styles/home.scss";
-import { BsArrowRight } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
-import { GoSearch } from "react-icons/go";
+import React, { useState } from 'react'
+import {BsArrowRight} from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { FaArrowRightLong } from "react-icons/fa6";
-import { AiFillLinkedin } from "react-icons/ai";
-import { CiMail } from "react-icons/ci";
-import { FaTwitter } from "react-icons/fa";
-import { BsInstagram } from "react-icons/bs";
-import { getAllJobs, serchAllJobs,filterSearch,} from "../redux/slices/dataSlice";
-import Header from "./header";
-import { verifyToken } from "../utils/utlis";
-import { Input, FormGroup, Label } from "reactstrap";
-import FilterRole from "../components/filterRole"
+import { Link } from 'react-router-dom';
+function SearchJob() {
+  const SearchJob = useSelector((state) => state.User.value.getSearchJob);
 
-export default function Home() {
-  const token = localStorage.getItem("token");
-  const email = localStorage.getItem("email");
-  const userId = localStorage.getItem("userId");
-  const dispatch = useDispatch();
-  const [open, setOpen] = useState(false);
-  const jobData = useSelector((state) => state.User.value.jobData);
-  const navigate = useNavigate();
-  const handleClick = () => {
-    setOpen(!open);
-  };
-  useEffect(() => {
-    dispatch(getAllJobs());
-    if (!verifyToken(email, userId, token)) {
-      navigate("/accounts/login");
-      window.location.reload();
-    }
-  }, [token]);
-
-
+  const[on,setOn]=useState(false);
   return (
-    <div className="homePage-container">
-      <Header /> 
-      <FilterRole/>
-      <div>
-      </div>
-    
-      <div className="homePage-cards-container container bg-light  ">
-        {jobData &&
-          jobData.map((e) => {
+    <div>
+
+         <div className="homePage-cards-container container">
+        {SearchJob.length &&
+          SearchJob.map((e) => {
             return (
-              <div className="card-container  shadow p-1 mb-2 bg-body rounded ">
-                <div className="card-container-01 ">
+              <div className="card-container bg-white">
+                <div className="card-container-01">
                   <div>
-                    <h5>{e.title}</h5>
-                    <h5 className="text-secondary ">{e.company_name}</h5>
+                    <h5 >{e.title}</h5>
+                    <h5 className="text-secondary " >{e.company_name}</h5>
                     <div>
                       <label className="h6">Role :</label>
                       <span>{e.role}</span>
@@ -68,10 +35,11 @@ export default function Home() {
                       <span>{e.employmenttype}</span>
                     </div>
                   </div>
+                 
                 </div>
                 <div>
                   <label className="h6">Skills :</label>
-                  <div className="d-flex" style={{ columnGap: "0.3rem" }}>
+                  <div className="d-flex" style={{ columnGap: "0.1em" }}>
                     {e.skills &&
                       e.skills.split(",").map((i) => {
                         return (
@@ -91,7 +59,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="d-flex gap-1 ">
-                  <div>
+                <div>
                     <span
                       style={{
                         fontSize: "0.7rem",
@@ -139,61 +107,19 @@ export default function Home() {
                       className="bg-secondary text-white rounded-pill"
                     >
                       {e.openings}
-                    </span>
+                    </span>   
                   </div>
                 </div>
                 <div className="card-profile">
-                  <p
-                    style={{
-                      backgroundColor:
-                        "#" + Math.floor(Math.random() * 16777215).toString(16),
-                      color: "white",
-                    }}
-                  >
-                    {e.company_name.slice(0, 2).toUpperCase()}
-                  </p>
-                </div>
-                <Link to={"/viewJOb/" + e._id}>
-                  {" "}
-                  <div className="viewjob" style={{ color: "black" }}>
-                    view job <BsArrowRight />
+                    <p style={{ backgroundColor: "#" + Math.floor(Math.random() * 16777215).toString(16) ,color:'white'}}>{e.company_name.slice(0, 2).toUpperCase()}</p>
                   </div>
-                </Link>
+                 <Link to={"/viewJOb/" + e._id}> <div className="viewjob">View Job <BsArrowRight/></div></Link>
               </div>
             );
           })}
       </div>
-      <div className="foter">
-        <div className="inside">
-          <img
-            src="https://res.cloudinary.com/cliqtick/image/upload/v1692600339/icons/logo-techie-_IE_uqk1bc.png"
-            style={{
-              width: "7em",
-              height: "3em",
-              marginTop: "1em",
-              marginLeft: "10em",
-            }}
-          />
-          <p className="privacy">
-            Privacy Policy . Terms & Conditions . Beware of Fraudsters
-          </p>
-          <p className="copy">
-            Copyright © 2023 codezo.in | All Rights Reserved
-          </p>
-          <div className="icons">
-            <FaTwitter />
-            <BsInstagram />
-            <AiFillLinkedin />
-            <CiMail />
-          </div>
-        </div>
-        <div className="links">
-          <img
-            className="plays"
-            src="https://codezo.s3.amazonaws.com/static/img/google-play-download.png"
-          />
-        </div>
-      </div>
     </div>
-  );
+  )
 }
+
+export default SearchJob

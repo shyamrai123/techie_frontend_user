@@ -26,7 +26,8 @@ const dataSlice = createSlice({
       getSavedJob:[],
       followcompany:{} ,
       getfollowedcompany:[],
-      searchData  : []
+      getSearchJob:[],
+   
       
       
     },
@@ -35,7 +36,10 @@ const dataSlice = createSlice({
   reducers: {
      handleSearch  :(state,action)=>{
       state.value.searchData  = action.payload;
-     }
+     },
+
+  
+
   },
 
   extraReducers: (builder) => {
@@ -202,6 +206,15 @@ const dataSlice = createSlice({
      builder.addCase(serchAllJobs.rejected, (state, action) => {
        state.error = action.error;
      });
+
+
+     builder.addCase(getSearchJobs.fulfilled, (state,action) =>{
+      state.value.getSearchJob= action.payload;
+    });
+    builder.addCase(getSearchJobs.rejected, (state,action) =>{
+      state.error= action.error;
+    });
+
 
 
   },
@@ -390,5 +403,12 @@ export const postCompany = createAsyncThunk("postCompany", async (arg) => {
   return data;
 });
 
+export const getSearchJobs = createAsyncThunk("getSearchJobs", async({searchedInput}) => {
+  const {data} = await axios.get(baseUrl + "/search/search?search="+searchedInput)
+  return data
+})
+
+
+
 export default dataSlice.reducer;
-export const{saveJob,handleSearch } = dataSlice.actions;
+export const{saveJob,handleSearch,filterSearch } = dataSlice.actions;

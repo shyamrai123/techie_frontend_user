@@ -5,7 +5,11 @@ import { getJob , postSaveJob } from "../redux/slices/dataSlice";
 import Header from "./header";
 import { BsBookmark } from "react-icons/bs";
 import "../styles/viewJob.scss";
-
+import {BsInstagram} from "react-icons/bs"
+import { FaArrowRightLong } from "react-icons/fa6";
+import { AiFillLinkedin } from "react-icons/ai";
+import { CiMail } from "react-icons/ci";
+import { FaTwitter } from "react-icons/fa";
 function ViewJob() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -199,25 +203,48 @@ function ViewJob() {
         </div>
       </div>
       <div className="container">
-        <h3>About Company</h3>
-        <div className="card-profile">
-          <p>
+        <h3  className="pt-2"style={{marginLeft:'0em'}}>About Company</h3>
+        <hr style={{width:'81.5em',marginLeft:'0em'}}/>
+        <div className="card-profile shadow border bg-light pt-2 rounded pill" style={{width:'81.5em',height:'20vh',marginLeft:'0em'}}>
+          <p style={{marginLeft:'1.3em',backgroundColor: "#" + Math.floor(Math.random() * 16777215).toString(16),color:'white'}}>
             {getJobDetails.company_name &&
               getJobDetails.company_name.slice(0, 2).toUpperCase()}
           </p>
           <div>
             {
-              <div>{getJobDetails && getJobDetails.company_name}</div>
+              <div><b>{getJobDetails && getJobDetails.company_name}</b></div>
             }
               {
               <div>{getJobDetails && getJobDetails.States}</div>
             }
           </div>
-          <div>
-            <span>View Company </span>
+          <div className="pt-5">
+            <span style={{marginLeft:'36em',cursor:"pointer"}}>View Company <FaArrowRightLong /></span>
           </div>
         </div>
       </div>
+
+      <div className="border bg-secondary rounded pill pt-1" style={{width:'15em',height:'7vh',textAlign:'center',marginLeft:'7em',marginTop:'1.5em',color:'white'}}>
+        <p>Verify Account to Apply</p>
+      </div>
+
+
+      <div className="footer">
+                <div className="inside">
+                    <img src="https://res.cloudinary.com/cliqtick/image/upload/v1692600339/icons/logo-techie-_IE_uqk1bc.png" style={{ width: '7em', height: '3em', marginTop: '1em', marginLeft: '10em' }} />
+                    <p className="privacy">Privacy Policy . Terms & Conditions . Beware of Fraudsters</p>
+                    <p className="copy">Copyright © 2023 codezo.in | All Rights Reserved</p>
+                    <div className="icons">
+                        <FaTwitter />
+                        <BsInstagram />
+                        <AiFillLinkedin />
+                        <CiMail />
+                    </div>
+                </div>
+            <div className="links">
+                <img className="play" src="https://codezo.s3.amazonaws.com/static/img/google-play-download.png" />
+            </div>
+            </div>
     </div>
   );
 }

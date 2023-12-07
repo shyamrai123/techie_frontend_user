@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export default function Login() {
   const [formData001, setFormData001] = useState({});
   const loginUser = useSelector((state) => state.User.value.login);
-  const {token} = loginUser;
+  const { token } = loginUser;
 
   // const token = localStorage.getItem("token");
   const dispatch = useDispatch();
@@ -16,27 +16,31 @@ export default function Login() {
     e.preventDefault();
     dispatch(LoginUser(formData001));
   };
+  const handleClick2 = (e) =>{
+    e.preventDefault();
+    navigate("/accounts/register")
+  }
   useEffect(() => {
-    
-    if(token){
-      
-        navigate("/home");
+
+    if (token) {
+
+      navigate("/home");
     }
-  },[token])
+  }, [token])
   return (
     <div className="register-container">
       <div className="imagediv">
         <img src="https://codezo.s3.amazonaws.com/static/img/login-page1.jpg" />
       </div>
       <div className="formDiv">
-        <Form className=" border border-2 p-3" onSubmit={handleClick001}>
+        <Form className="  border-2 p-5" onSubmit={handleClick001}>
           <FormGroup>
-            <Label for="exampleEmail" className="h4">
+            <Label for="exampleEmail" className="h4" style={{color:"white"}}>
               Login Form
             </Label>
           </FormGroup>
           <FormGroup>
-            <Label for="exampleEmail">Email</Label>
+            <Label for="exampleEmail"  style={{color:"white"}}>Email :</Label>
             <Input
               id="exampleEmail"
               name="email"
@@ -48,9 +52,9 @@ export default function Login() {
             />
           </FormGroup>
 
-      
+
           <FormGroup>
-            <Label for="examplePassword">Password</Label>
+            <Label for="examplePassword"  style={{color:"white"}}>Password :</Label>
             <Input
               id="examplePassword"
               name="password"
@@ -62,11 +66,13 @@ export default function Login() {
             />
           </FormGroup>
 
-
-          
+          <br />
+          <Label className="register" onClick={handleClick2}>Doesn't Have An Account ? Register</Label>
+          <br />
+          <br />
           <FormGroup className="text-center">
             <Button className="bg-success" onClick={handleClick001}>
-             Login
+              Login
             </Button>
           </FormGroup>
         </Form>

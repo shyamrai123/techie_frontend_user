@@ -1,48 +1,84 @@
-import { useEffect, useState } from "react";
-import "../styles/home.scss";
-import { BsArrowRight } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
-import { GoSearch } from "react-icons/go";
-import { useDispatch, useSelector } from "react-redux";
-import { FaArrowRightLong } from "react-icons/fa6";
-import { AiFillLinkedin } from "react-icons/ai";
-import { CiMail } from "react-icons/ci";
-import { FaTwitter } from "react-icons/fa";
-import { BsInstagram } from "react-icons/bs";
-import { getAllJobs, serchAllJobs,filterSearch,} from "../redux/slices/dataSlice";
-import Header from "./header";
-import { verifyToken } from "../utils/utlis";
-import { Input, FormGroup, Label } from "reactstrap";
-import FilterRole from "../components/filterRole"
-
-export default function Home() {
-  const token = localStorage.getItem("token");
-  const email = localStorage.getItem("email");
-  const userId = localStorage.getItem("userId");
-  const dispatch = useDispatch();
-  const [open, setOpen] = useState(false);
-  const jobData = useSelector((state) => state.User.value.jobData);
-  const navigate = useNavigate();
-  const handleClick = () => {
-    setOpen(!open);
-  };
-  useEffect(() => {
-    dispatch(getAllJobs());
-    if (!verifyToken(email, userId, token)) {
-      navigate("/accounts/login");
-      window.location.reload();
-    }
-  }, [token]);
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { getAllJobs } from '../redux/slices/dataSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { Input ,FormGroup, Col, Link } from 'reactstrap'
+import {BsArrowRight} from "react-icons/bs"
+import { baseUrl } from '../utils/api'
 
 
-  return (
-    <div className="homePage-container">
-      <Header /> 
-      <FilterRole/>
-      <div>
-      </div>
+
+const FilterRole = () => {
+
+
+  const jobDetails = useSelector((state)=>state.User.value.jobData)
+  console.log(jobDetails);
+  const dispatch = useDispatch()
+
+   const [jobData,setJObData] = useState([]);
+   const [filtetApi, setFilterApi] = useState([]); 
+  const [filter,setFilter] = useState("");
+
+ 
+ const fetchData = async ()=>{
+      const {data} = await axios.get(baseUrl+"/jobs/getAll");
+      setJObData(data);
+      // setFilterApi(data);
     
-      <div className="homePage-cards-container container bg-light  ">
+ }
+
+ console.log(jobData);
+ //  console.log(filtetApi);
+
+ useEffect(()=>{
+      fetchData();
+      // dispatch(getAllJobs())
+ },[]);
+
+
+ 
+//  const filterchange = (e)=>{
+//      const role = e.target.value;
+//      const filterData = jobData.filter((job)=>job.role.toLowerCase().include(role.toLowerCase()));
+//      setJObData(filterData);
+//      setFilter(role)
+
+//  }
+
+
+  const filterchange = (e)=>{
+       e.preventDefault();
+     const role= e.target.value
+    
+
+    
+    if(role == ""){
+      setJObData(filtetApi);
+    }
+
+    else{
+      const filterRole = jobData.filter((job)=>  job.role.toLowerCase().includes(role));     
+      setJObData(filterRole)
+
+    }
+    setFilter(role);
+  }
+
+    
+  return (
+    <div>
+          <div>
+            <div style={{display:"flex",justifyContent:"center"}} >
+            <input 
+               onChange={(e)=>filterchange(e)}
+               value={filter}
+             
+             />
+   
+            </div>
+        
+
+             <div className="homePage-cards-container container bg-light  ">
         {jobData &&
           jobData.map((e) => {
             return (
@@ -153,47 +189,20 @@ export default function Home() {
                     {e.company_name.slice(0, 2).toUpperCase()}
                   </p>
                 </div>
-                <Link to={"/viewJOb/" + e._id}>
+                {/* <Link >
                   {" "}
                   <div className="viewjob" style={{ color: "black" }}>
                     view job <BsArrowRight />
                   </div>
-                </Link>
+                </Link> */}
               </div>
             );
           })}
       </div>
-      <div className="foter">
-        <div className="inside">
-          <img
-            src="https://res.cloudinary.com/cliqtick/image/upload/v1692600339/icons/logo-techie-_IE_uqk1bc.png"
-            style={{
-              width: "7em",
-              height: "3em",
-              marginTop: "1em",
-              marginLeft: "10em",
-            }}
-          />
-          <p className="privacy">
-            Privacy Policy . Terms & Conditions . Beware of Fraudsters
-          </p>
-          <p className="copy">
-            Copyright © 2023 codezo.in | All Rights Reserved
-          </p>
-          <div className="icons">
-            <FaTwitter />
-            <BsInstagram />
-            <AiFillLinkedin />
-            <CiMail />
           </div>
-        </div>
-        <div className="links">
-          <img
-            className="plays"
-            src="https://codezo.s3.amazonaws.com/static/img/google-play-download.png"
-          />
-        </div>
-      </div>
+
     </div>
-  );
+  )
 }
+
+export default FilterRole

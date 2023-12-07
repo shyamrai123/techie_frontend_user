@@ -16,7 +16,11 @@ const Front = () => {
         navigate("accounts/login")
     };
 
-   
+    const onHandleClick1 = (e) => {
+        e.preventDefault();
+        navigate("/admin/dashboard")
+    }
+
     return (
         <div className="frontpage-container">
 
@@ -26,13 +30,13 @@ const Front = () => {
             </div>
 
             <div className="titles">
-                <h2>Techiepanda.in</h2> 
+                <h2>Techiepanda.in</h2>
                 <p className="job">Coding , Tech & HR Job</p>
                 <p className="search">Search</p>
                 <button>Find Your Dream Job in 3 Minutes</button>
 
             </div>
-            <button className="view" >View Jobs <BsArrowRightShort /></button>
+            <button className="view" onClick={onHandleClick1}>View Jobs <BsArrowRightShort /></button>
 
             <div className="learnimg">
                 <img className="img" src="https://img.freepik.com/free-vector/cute-boy-study-with-laptop-cartoon-icon-illustration-education-technology-icon-concept-isolated-flat-cartoon-style_138676-2107.jpg" />
@@ -63,7 +67,7 @@ const Front = () => {
 
             <div className="footer">
                 <div className="inside">
-                    <img src="https://res.cloudinary.com/cliqtick/image/upload/v1692600339/icons/logo-techie-_IE_uqk1bc.png" style={{ width: '6em', height: '3em', marginTop: '1em', marginLeft: '10em' }} />
+                    <img src="https://res.cloudinary.com/cliqtick/image/upload/v1692600339/icons/logo-techie-_IE_uqk1bc.png" style={{ width: '7em', height: '3em', marginTop: '1em', marginLeft: '10em' }} />
                     <p className="privacy">Privacy Policy . Terms & Conditions . Beware of Fraudsters</p>
                     <p className="copy">Copyright © 2023 codezo.in | All Rights Reserved</p>
                     <div className="icons">

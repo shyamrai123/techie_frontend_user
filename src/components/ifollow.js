@@ -5,7 +5,12 @@ import { getAllCompanies,getUserFollowedCompany } from "../redux/slices/dataSlic
 import { Link, useMatches, useParams } from "react-router-dom";
 import "../styles/home.scss"
 import { FaArrowRight } from "react-icons/fa";
-
+import {BsInstagram} from "react-icons/bs"
+import { FaArrowRightLong } from "react-icons/fa6";
+import { AiFillLinkedin } from "react-icons/ai";
+import { CiMail } from "react-icons/ci";
+import { FaTwitter } from "react-icons/fa";
+import "../styles/ifollow.scss"
 function Ifollow() {
     const dispatch = useDispatch();
     const companyData = useSelector((state) => state.User.value.companyData);
@@ -94,6 +99,22 @@ function Ifollow() {
              }
         </div>
       </div>
+      <div className="footter">
+                <div className="inside">
+                    <img src="https://res.cloudinary.com/cliqtick/image/upload/v1692600339/icons/logo-techie-_IE_uqk1bc.png" style={{ width: '7em', height: '3em', marginTop: '1em', marginLeft: '10em' }} />
+                    <p className="privacy">Privacy Policy . Terms & Conditions . Beware of Fraudsters</p>
+                    <p className="copy">Copyright © 2023 codezo.in | All Rights Reserved</p>
+                    <div className="icons">
+                        <FaTwitter />
+                        <BsInstagram />
+                        <AiFillLinkedin />
+                        <CiMail />
+                    </div>
+                </div>
+            <div className="links">
+                <img className="playstore" src="https://codezo.s3.amazonaws.com/static/img/google-play-download.png" />
+            </div>
+            </div>
     </div>
   );
 }
