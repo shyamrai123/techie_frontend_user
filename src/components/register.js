@@ -1,109 +1,126 @@
-import { Form } from "react-router-dom";
-import { FormGroup, Label, Input, Button } from "reactstrap";
-import "../styles/register.css";
+import { useNavigate } from "react-router-dom";
+import "../styles/register.scss"
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { RegisterUser } from "../redux/slices/dataSlice";
 export default function Register() {
   const [formData, setFormData] = useState({});
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const date = new Date();
   console.log(date);
+  const OnHandleClick1 = (e) => {
+    e.preventDefault();
+    navigate("/login");
+  };
   const handleClick = (e) => {
     e.preventDefault();
-    if(formData.password !== formData.confirmpassword) {
-    window.alert("Password and Confirm Password are not same");
-    }else{
-      dispatch(RegisterUser({...formData,timedate : date}));
+    if (formData.password !== formData.confirmpassword) {
+      window.alert("Password and Confirm Password are not same");
+    } else {
+      dispatch(RegisterUser({ ...formData, timedate: date }));
       window.alert("Successfully Registered");
     }
-    
   };
+
   return (
-    <div className="register-container">
-      <div className="imagediv">
-        <img src="https://codezo.s3.amazonaws.com/static/img/login-page1.jpg" />
-      </div>
-      <div className="formDiv">
-        <Form onSubmit={handleClick}>
-          <FormGroup>
-            <Label for="exampleEmail" className="h4">
-              Register Form
-            </Label>
-          </FormGroup>
-          <FormGroup>
-            <Label for="exampleEmail">Email</Label>
-            <Input
-              id="exampleEmail"
-              name="email"
-              placeholder="Email Address"
-              type="email"
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
-            />
-          </FormGroup>
+    <div className="register-container-main">
+      <div className="register-container">
+        <div className="left">
+          <div className="wallpaper">
+            <img src="https://res.cloudinary.com/cliqtick/image/upload/v1684308943/create_user_ryynll.jpg" />
+          </div>
+        </div>
 
-          <FormGroup>
-            <Label for="exampleNumber">Mobile Number</Label>
-            <Input
-              id="exampleNumber"
-              name="number"
-              placeholder="Mobile Number"
-              type="text"
-              onChange={(e) =>
-                setFormData({ ...formData, mobilenumber: e.target.value })
-              }
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="exampleDatetime">Username</Label>
-            <Input
-              id="exampleDatetime"
-              name="username"
-              placeholder="UserName"
-              type="text"
-              onChange={(e) =>
-                setFormData({ ...formData, username: e.target.value })
-              }
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="examplePassword">Password</Label>
-            <Input
-              id="examplePassword"
-              name="password"
-              placeholder="password"
-              type="password"
-              onChange={(e) =>
-                setFormData({ ...formData, password: e.target.value })
-              }
-            />
-          </FormGroup>
+        <div className="right">
+          <div className="right-upper">
+            <div className="blacircle"></div>
+            <div className="oraline"></div>
+            <div className="oracircle"></div>
+          </div>
+          <div className="logo-container">
+            <div className="logo">
+              <img src="https://res.cloudinary.com/cliqtick/image/upload/v1692600339/icons/logo-techie-_IE_uqk1bc.png" />
+            </div>
+          </div>
+          <div className="register">
+            <div className="input-container">
+              <input
+                className="invalu"
+                id="exampleDatetime"
+                name="username"
+                placeholder="User Name"
+                type="text"
+                onChange={(e) =>
+                  setFormData({ ...formData, username: e.target.value })
+                }
+              ></input>
+            </div>
 
-          <FormGroup>
-            <Label for="examplePassword">Confirm Password</Label>
-            <Input
-              id="examplePassword"
-              name="confirmpassword"
-              placeholder="Confirm password"
-              type="password"
-              onChange={(e) =>
-                setFormData({ ...formData, confirmpassword: e.target.value })
-              }
-            />
-          </FormGroup>
+            <div className="input-container">
+              <input
+                id="Email"
+                className="invalu"
+                name="email"
+                placeholder="Email "
+                type="email"
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+              ></input>
+            </div>
 
-          <FormGroup check>
-            <Input type="checkbox" />
-            <Label check>I here by agree to terms and conditions</Label>
-          </FormGroup>
-          <FormGroup className="text-center">
-            <Button className="bg-success" onClick={handleClick}>
-              Register
-            </Button>
-          </FormGroup>
-        </Form>
+            <div className="input-container">
+              <input
+                id="exampleNumber"
+                className="invalu"
+                name="number"
+                placeholder="Phone"
+                type="text"
+                onChange={(e) =>
+                  setFormData({ ...formData, mobilenumber: e.target.value })
+                }
+              ></input>
+            </div>
+
+            <div className="input-container">
+              <input
+                id="Password"
+                className="invalu"
+                name="password"
+                placeholder="Password"
+                type="password"
+                onChange={(e) =>
+                  setFormData({ ...formData, password: e.target.value })
+                }
+              ></input>
+            </div>
+
+            <div className="input-container">
+              <input
+                id="examplePassword"
+                className="invalu"
+                name="confirmpassword"
+                placeholder="Confirm password"
+                type="password"
+                onChange={(e) =>
+                  setFormData({ ...formData, confirmpassword: e.target.value })
+                }
+              ></input>
+            </div>
+          </div>
+
+          <div className="AlreadyRegis" onClick={OnHandleClick1}>
+            <div>Already Registered ? Click me</div>
+          </div>
+          <div className="register-btn">
+            <div>
+              <button type="button" onClick={handleClick}>
+                Register
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

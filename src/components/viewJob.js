@@ -1,87 +1,86 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useMatches, useNavigate } from "react-router-dom";
-import { getJob , postSaveJob } from "../redux/slices/dataSlice";
-import Header from "./header";
-import { BsBookmark } from "react-icons/bs";
-import "../styles/viewJob.scss";
+import { useMatch, useMatches, useNavigate,Link } from "react-router-dom";
+import { getJob , saveJob } from "../redux/slices/dataSlice";
 import {BsInstagram} from "react-icons/bs"
 import { FaArrowRightLong } from "react-icons/fa6";
 import { AiFillLinkedin } from "react-icons/ai";
 import { CiMail } from "react-icons/ci";
 import { FaTwitter } from "react-icons/fa";
+import Header from "./header";
+import { BsBookmark } from "react-icons/bs";
+import { verifyToken } from "../utils/utlis";
+import "../styles/viewJob.scss";
 function ViewJob() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {jobId} = useParams();
-  const userId = localStorage.getItem("userId")
+const userId = localStorage.getItem("userId")
+
+
   const getJobDetails = useSelector((state) => state.User.value.getJobDetails);
-  const postJobState = useSelector((state)=>state.User.value.postSaveJob);
-
-  console.log(postJobState);
-
-  
-   const jobsMatches = useMatches();
-  console.log(jobsMatches);
-
-
   const params = useMatches();
   
+  const handleSaveJob = () => {
+    dispatch(saveJob({ jobId: params[0].params.jobId }))
+  }
   useEffect(() => {
     dispatch(getJob({ jobId: params[0].params.jobId }));
-
   }, []);
-  
-
-  const handleSaveJob = () => {
-    dispatch(postSaveJob({ userId, jobId }));
-  };
-  
 
 
+  const token = localStorage.getItem("token");
+  const email = localStorage.getItem("email");
+  useEffect(() => {
+    if (!verifyToken(email,userId,token)) {
+      navigate("/login");
+      window.location.reload();
+    }
+  }, [token]);
   return (
-    <div className="job-container ">
+    <div className="job-container " style={{backgroundColor:'rgb(243,243,243)'}}>
       <Header />
-
-      <div className="container pt-3">
-        <div className="d-flex justify-content-between">
+      <div className="viewhome container "  >
           <div>
             Home / JobId : {getJobDetails._id && getJobDetails._id.slice(0,3)}
           </div>
           <div style={{ cursor: "pointer" }}>
             <BsBookmark />{" "}
-            <button className="text-decoration-underline" onClick={()=>handleSaveJob({_id:jobId, _id:userId})}>Save Job</button>
+            <span onClick={handleSaveJob}className="text-decoration-underline">
+                    Save Job
+                    </span>
           </div>
         </div>
-        <div className="h2">{getJobDetails.title}</div>
-        <div className="d-flex justify-content-between">
-          <div className="d-flex justify-content-evenly gap-2">
+        <div className="h2 container " style={{marginLeft:'3em'}}>{getJobDetails.title}</div>
+        <div className="">
+          <div className="hiring-div container">
             <div
-              style={{ fontSize: "0.8rem" }}
-              className=" text-success border border-success rounded-pill d-flex justify-content-center align-items-center ps-2 pe-2"
+              className=" hirings"
             >
               HIRING
             </div>
             <div
-              style={{ fontSize: "0.8rem" }}
-              className="ps-2 pe-2 text-white bg-secondary rounded-pill d-flex justify-content-center align-items-center"
+              
+              className="openings"
             >
               {getJobDetails.openings}
             </div>
-          </div>
+          
           <div
             style={{ cursor: "pointer" }}
-            className="text-danger border border-danger rounded-pill ps-2 pe-2"
+            className=" container sharejob"
           >
             SHARE JOB
           </div>
         </div>
-        {/* diplay job details */}
-        <div className=" bg-light">
-
+        </div>
+      
+        <hr className="container"/>
+      <div className="data">
        
-        <div className="d-flex justify-content-between align-items-start pt-5 border">
-          <div>
+        {/* diplay job details */}
+        <div className="shadow border container  ">
+        <div className=" viewjobsDetails container">
+          <div className="viewjobsDetails-1">
             <div>
               <label>ROLE</label>
               <p>{getJobDetails && getJobDetails.role}</p>
@@ -103,10 +102,10 @@ function ViewJob() {
               <p>{getJobDetails && getJobDetails.salary}</p>
             </div>
           </div>
-          <div>
+          <div className="viewjobsDetails-2">
             <div>
               <label>SKILLS</label>
-              <div className="d-flex" style={{ columnGap: "0.3rem" }}>
+              <div >
                 {getJobDetails.skills &&
                   getJobDetails.skills.split(",").map((i) => {
                     return (
@@ -132,10 +131,10 @@ function ViewJob() {
           </div>
         </div>
 
-        <div>
+        <div className="description">
           <label>JOB DESCRIPTION</label>
           <h6>
-            Thought Minds – is a global leader in providing solutions on LLM and
+            Thought Minds - is a global leader in providing solutions on LLM and
             generative AI solutions .We are seeking an experienced Business
             Analyst with 3- 5 years of professional experience to join our team.
             As a Business Analyst, you will play a vital role in bridging the
@@ -197,20 +196,26 @@ function ViewJob() {
             </li>
           </ul>
         </div>
-        </div>  
         <div className="h6">
           Location : {getJobDetails && getJobDetails.States}
         </div>
       </div>
+
+     
+      </div>
       <div className="container">
-        <h3  className="pt-2"style={{marginLeft:'0em'}}>About Company</h3>
-        <hr style={{width:'81.5em',marginLeft:'0em'}}/>
-        <div className="card-profile shadow border bg-light pt-2 rounded pill" style={{width:'81.5em',height:'20vh',marginLeft:'0em'}}>
-          <p style={{marginLeft:'1.3em',backgroundColor: "#" + Math.floor(Math.random() * 16777215).toString(16),color:'white'}}>
+        <h3  className="pt-2"style={{marginLeft:'1.7em'}}>About Company</h3>
+        <hr className="container"/>
+        <div className="  card-company shadow border ">
+         <div className="randoms" >
+             <p   style={{backgroundColor: "#" + Math.floor(Math.random() * 16777215).toString(16), width:"3em", height:"3em", borderRadius:"50%",
+              display:"flex",alignItems:"center", justifyContent:"center", marginLeft:"1em"
+            }}>
             {getJobDetails.company_name &&
               getJobDetails.company_name.slice(0, 2).toUpperCase()}
           </p>
-          <div>
+         </div>
+          <div className="locationcomp">
             {
               <div><b>{getJobDetails && getJobDetails.company_name}</b></div>
             }
@@ -218,22 +223,24 @@ function ViewJob() {
               <div>{getJobDetails && getJobDetails.States}</div>
             }
           </div>
-          <div className="pt-5">
-            <span style={{marginLeft:'36em',cursor:"pointer"}}>View Company <FaArrowRightLong /></span>
+          <div className="  view ">
+            <span style={{marginLeft:'29em',cursor:"pointer"}}>View Company <FaArrowRightLong /></span>
           </div>
         </div>
       </div>
 
-      <div className="border bg-secondary rounded pill pt-1" style={{width:'15em',height:'7vh',textAlign:'center',marginLeft:'7em',marginTop:'1.5em',color:'white'}}>
+         {/* ///footer// */}
+
+      <div className="border bg-secondary rounded pill pt-1 mt-b" style={{width:'15em',height:'7vh',textAlign:'center',marginLeft:'7em',marginTop:'1.5em',color:'white'}}>
         <p>Verify Account to Apply</p>
       </div>
 
 
-      <div className="footer">
+      <div className="footer mt-3">
                 <div className="inside">
                     <img src="https://res.cloudinary.com/cliqtick/image/upload/v1692600339/icons/logo-techie-_IE_uqk1bc.png" style={{ width: '7em', height: '3em', marginTop: '1em', marginLeft: '10em' }} />
                     <p className="privacy">Privacy Policy . Terms & Conditions . Beware of Fraudsters</p>
-                    <p className="copy">Copyright © 2023 codezo.in | All Rights Reserved</p>
+                    <p className="copy">Copyright © 2023 techiepanda.in | All Rights Reserved</p>
                     <div className="icons">
                         <FaTwitter />
                         <BsInstagram />

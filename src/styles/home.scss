@@ -1,38 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
 .home-container {
   width: 100%;
   
   .line{
-    width:100%;
-    height: 1.8rem;
+    width: 100%;
+    height: 1.5em;
     background-color: rgb(244,179,74);
+
     
   }
   .home-container-header {
-    position: relative;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 1rem;
-    padding: 1rem ;
-    box-shadow: 0 0 0.1rem;
-    div:nth-child(1) {
+    justify-content: space-around;
+    align-items:center;
+    
+  
       .logo {
-        width: 7rem;
+        width: 10em;
+        height: auto;
        cursor: pointer;
       }
-    }
-    div:nth-child(2) {
-      .searchbar-div{
-        border-radius: 30%;
-      }
-      .searchbar {
-        width: 15rem;
-        border-radius: 10%;
-        &:focus {
-          outline: none;
-        }
-      }
-    }
+    
+  
     .profile-name{
        
         display: flex;
@@ -81,70 +71,96 @@
 .display-none{
   display: none;
 }
-.homePage-container{
-  .homePage-cards-container{
-    padding-top: 1rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 2rem;
-    row-gap: 2rem;
-    .card-container{
-    box-shadow: 0 0 0.2rem;
-    border-radius: 1%;
-     padding: 1rem;
-     position: relative;
-    .card-container-01{
-         
-    }
-    .viewjob{
-      position: absolute;
-      bottom: 8%;
-      right: 5%;
-     cursor: pointer;
-     &:hover{
-      text-decoration: solid;
-     }
-    }
-    .card-profile{
-  position: absolute;
-  top: 10%;
-  right: 5%;
 
- 
- 
-     p{
-      width: 4rem;
-      height: 4rem;
-      border-radius: 50%;
-      background-color: rgb(219, 169, 89);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.5rem;
-      font-weight: 500;
-     }
-    }
-  }
-  }
-}
-
-
+///home///
 
 .filter{
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     width: 8rem;
-     height: 5rem;
-     border: 1px solid;
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+}
+
+.card-container{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  flex-wrap: wrap;
+  
+
+  .card{
+    width: 36em;
+    height:20em;
+    display: flex;
+    border: 1px solid;
+    position: relative;
+    margin: 1em;
+
+    .card-1{
+      display: flex;
+      justify-content: start;
+      align-items:start;
+      flex-direction: column;
+      // margin-left: 2em;
+      // padding: 1em;
+      // position: absolute;
+       position: absolute;
+       left: 2em;
+       top: 1em;
+    }
+
+
+
+    .skills{
+      display: flex;
+      flex-wrap: wrap;
+
+    }
+
+  }
+
+
+  .random{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3em;
+    height: 3em;
+    border: 1px solid;
+    border-radius: 50%;
+    color: white;
+    position: absolute;
+      right: 2em;
+    top: 2em;
+    
+  }
+
+  .viewjob{
+    right: 4em;
+    bottom: 1em;
+    position: absolute;
+    color: black;
+  }
+
 }
 
 
+
+///footer///
+
 .foter{
-  background-color: rgb(244,179,74);
-  width:100%;
-  height:25vh;
-  margin-top: 3em;
+  height: 45vh;
+  width: 95%;
+  gap: 1em;
+  padding: 3em;
+  margin: 3em auto 0;
+  display: flex;
+  position: relative;
+  top:0em;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-top: 1px solid #f4b34a;
+  border-radius: 75px 75px 0 0;
+  box-shadow: 0px -4px 6px 4px #fce6c5;
+  background-color: white;
   .inside{
       .privacy{
           color:white;
@@ -154,28 +170,142 @@
           color:rgb(187, 166, 133);
           margin-left: 9em;
       }
+      .website{
+        margin-top: 2.5em;
+        margin-left: 1em;
+        
+      }
+      .contact{
+        margin-top: 0em;
+        margin-left: 2em;
+      }
+
+      .mid{
+        margin-top: -3.3em;
+        margin-left: 7em;
+        display: flex;
+        flex-direction: column;
+        column-gap: 2em;
+        font-size: 50px;
+
+      }
+      .mid2{
+        margin-top: -3.5em;
+        margin-left: 10em;
+        display: flex;
+        flex-direction: column;
+        font-size: 50px;
+        column-gap:0em;
+        .mat{
+          line-height: 0.2em;
+        }
+       
+      }
+
   }
   .icons{
       position: absolute;
-      top:35.5em;
-      right:2em;
+      bottom: 4.5em ;
+      left:2em;
       font-size: 2em;
       display: flex;
-      color: white;
+      color:white;
       justify-content: space-evenly;
       margin-right: 3em;
-      column-gap: 1em;
+      column-gap: 0em;
+      width: 5em;
+      height:5vh;
   }
 }
-.links{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  .plays{
-      width:10em;
-      position: absolute;
-      right:12em;
-      top:75em;
-  }
+
+.bisearch{
+  position: absolute; 
+  top: 1.6em;
+   left: 35em;
+    font-size: 1.5em; 
+    color: gray;
+    opacity: 0.5;
+}
+.inpsearch{
+  position: relative;
+   top: 0.1em;
+    left: 0.25em; 
+    border-radius: 50px; 
+    width: 30em;
+     height: 3em;
+     border: solid rgb(232,235,238);
+     text-align:center;
+    //  opacity:0.5;
+}
+
+
+@media only screen and (min-width:320px) and (max-width:480px) {
+  
+  .card-container{
+    display: block;
+    flex-wrap: wrap;
+
+    .card{
+      width:19em;
+      height:10;
+      display: flex;
+      border: 1px solid;
+      position: relative;
+      left: -1.2em;
+      
+      .card-1{
+        display: flex;
+        justify-content: start;
+        align-items:start;
+        flex-direction: column;
+        position: absolute;
+        left: 0.5em;
+        top: 1em;
  
+      }
+
+    }
+  
+    .random{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2em;
+      height: 2em;
+      border: 1px solid;
+      border-radius: 50%;
+      color: white;
+      position: absolute;
+        right: 1em;
+         top: 2em;
+      
+    }
+
+    .viewjob{
+      right: 1em;
+      bottom: 0em;
+      position: absolute;
+      color: black;
+    }
+
+    .h5{
+      font-size: 1em;
+    }
+
+    .title{
+      font-size: 1em;
+    }
+
+  }
+
 }
+
+
+    
+
+    
+ 
+
+    
+    
+

@@ -1,0 +1,116 @@
+
+.about{
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border: 1px solid #dee2e6;       
+        border-radius: 0.25rem;
+        width:81.2em;
+        padding: 1em;
+        margin-left: 7em;
+}
+
+.home{
+position: absolute;
+top:28em;
+left:7em;
+
+}
+
+.footer{
+  background-color: rgb(244,179,74);
+  width:100%;
+  height:25vh;
+  position: relative;
+  top: 0em;
+  left:0em;
+  .inside{
+      .privacy{
+          color:white;
+          margin-left: 9em;
+      }
+      .copy{
+          color:rgb(187, 166, 133);
+          margin-left: 9em;
+      }
+  }
+  .icons{
+      position: absolute;
+      top:0.5em;
+      right:1em;
+      font-size: 2em;
+      display: flex;
+      color: white;
+      justify-content: space-evenly;
+      // margin-right: 2em;
+      // margin-top: -32em;
+      column-gap: 1em;
+  }
+}
+.links{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .play{
+      width:10em;
+      position: absolute;
+      right: 9em;
+      top:4em;
+    // margin-right: -1em;
+    // margin-top: -64em;
+  }
+ 
+}
+
+.card-pic{
+  height:19vh;
+  p{
+    color:white;
+  }
+}
+
+.companyloc{
+  color:gray;
+  position:absolute;
+  top:16.3em;
+  left:13em;
+}
+.abtcomp{
+  position:absolute;
+  top:18em;
+  left:13em;
+}
+
+.orbar{
+  background-color: rgb(244,179,74);
+  margin-top:2em;
+  .hom{
+    font-size: 1.1rem;
+     font-weight: 600;
+      cursor: pointer; 
+  }
+  .abt{
+    font-size: 1.1rem;
+    font-weight: 600;
+     cursor: pointer; 
+  }
+  .jobss{
+    font-size: 1.1rem;
+    font-weight: 600;
+     cursor: pointer;
+     grid-template-columns: repeat(2,1fr);
+  }
+}
+
+.skil{
+  column-gap: 0.3rem;
+}
+
+.skils{
+  font-size: 0.8rem;
+  padding: 0 0.2rem 0 0.2rem;
+}
+
+
+@media only screen and (min-width:320px) and (max-width:480px) {
+
+  
+}

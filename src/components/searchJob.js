@@ -10,7 +10,7 @@ function SearchJob() {
     <div>
 
          <div className="homePage-cards-container container">
-        {SearchJob.length &&
+        {SearchJob &&
           SearchJob.map((e) => {
             return (
               <div className="card-container bg-white">
@@ -107,7 +107,7 @@ function SearchJob() {
                       className="bg-secondary text-white rounded-pill"
                     >
                       {e.openings}
-                    </span>   
+                    </span>
                   </div>
                 </div>
                 <div className="card-profile">

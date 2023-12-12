@@ -5,17 +5,13 @@ import Register from "./components/register";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./components/home";
 import Login from "./components/login";
-import BuildProfile from "./components/buildProfile";
-import ProfileForm from "./components/profileForm";
-import UploadPic from "./components/uploadPic";
+
 import ViewJob from "./components/viewJob";
-import Front from "./components/startingPage";
+import Front from "./components/frontPage";
 import Ifollow from "./components/ifollow";
 import ViewCompany from "./components/viewCompany";
-import SavedJob from "./components/savedJob"
-
+import SavedJobs from "./components/savedJobs";
 import SearchJob from "./components/searchJob";
-import AllJobs from "./components/allJobs";
 
 function App() {
   const router = createBrowserRouter([
@@ -28,25 +24,13 @@ function App() {
       element: <Home />,
     },
     {
-      path: "/profile=/:userId",
-      element: <BuildProfile />,
-    },
-    {
-      path: "/profile/edit/:userId",
-      element: <ProfileForm />,
-    },
-    {
-      path: "/accounts/login",
+      path: "/login",
       element: <Login />,
     },
 
     {
-      path: "/accounts/register",
+      path: "/register",
       element: <Register />,
-    },
-    {
-      path: "/profile/edit-pic",
-      element: <UploadPic />,
     },
     {
       path: "/viewJob/:jobId",
@@ -60,21 +44,14 @@ function App() {
       path : "viewCompany/:cid",
       element: <ViewCompany/>
     },
-
     {
-      path : "savejob/:userId",
-      element: <SavedJob/>
-    },
-
-    {
-      path:'/allJobs',
-      element:<AllJobs/>
+      path : "savedJobs/:userId",
+      element: <SavedJobs/>
     },
     {
-      path:'/search',
+      path:'searchJob',
       element:<SearchJob/>
     }
-   
   ]);
   return (
     <div className="App">

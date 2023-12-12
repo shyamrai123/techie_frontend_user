@@ -13,7 +13,7 @@ const Front = () => {
 
     const onHandleClick = (e) => {
         e.preventDefault();
-        navigate("accounts/login")
+        navigate("/login")
     };
 
     const onHandleClick1 = (e) => {
@@ -25,8 +25,8 @@ const Front = () => {
         <div className="frontpage-container">
 
             <div className="header">
-                <img src="https://res.cloudinary.com/cliqtick/image/upload/v1692600339/icons/logo-techie-_IE_uqk1bc.png" style={{ width: "10em", height: '9vh', marginLeft: '3.5em', marginTop: '3em' }} />
-                <button onClick={onHandleClick} style={{ border: '1px solid ', borderRadius: '10px', width: '4.5em', height: '3em', backgroundColor: 'rgb(244,179,74)', color: 'white', marginTop: '3em', marginRight: '2.5em' }}>Login</button>
+                <img src="https://res.cloudinary.com/cliqtick/image/upload/v1692600339/icons/logo-techie-_IE_uqk1bc.png"/>
+                <button onClick={onHandleClick}>Login</button>
             </div>
 
             <div className="titles">
@@ -65,11 +65,11 @@ const Front = () => {
                 </div>
             </div>
 
-            <div className="footer">
+            <div className="foer">
                 <div className="inside">
-                    <img src="https://res.cloudinary.com/cliqtick/image/upload/v1692600339/icons/logo-techie-_IE_uqk1bc.png" style={{ width: '7em', height: '3em', marginTop: '1em', marginLeft: '10em' }} />
+                    <img className="photo" src="https://res.cloudinary.com/cliqtick/image/upload/v1692600339/icons/logo-techie-_IE_uqk1bc.png"/>
                     <p className="privacy">Privacy Policy . Terms & Conditions . Beware of Fraudsters</p>
-                    <p className="copy">Copyright © 2023 codezo.in | All Rights Reserved</p>
+                    <p className="copy">Copyright © 2023 techiepanda.in | All Rights Reserved</p>
                     <div className="icons">
                         <FaTwitter />
                         <BsInstagram />
