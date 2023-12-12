@@ -94,7 +94,7 @@ function Ifollow() {
         </div>
       </div>
 
-      <div className="foter">
+      {/* <div className="foter">
       <div className="inside">
           <img src="https://res.cloudinary.com/cliqtick/image/upload/v1692600339/icons/logo-techie-_IE_uqk1bc.png" style={{ width: '10em', height: '11vh', marginTop: '0em', marginLeft: '1em' }} />
           <div className="icons">
@@ -132,7 +132,7 @@ function Ifollow() {
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.0386556256476!2d83.23167277586289!3d17.74281769246731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3967274842f4df%3A0x9711e68b73419d51!2sTechiepanda!5e0!3m2!1sen!2sin!4v1696832682466!5m2!1sen!2sin"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style={{height:'15em',width:'25em',marginTop:'-0.5em'}}/>
         </div>
 
-      </div>
+      </div> */}
             </div>
   );
 }

@@ -33,8 +33,8 @@ function Header() {
   }, [token]);
 
   return (
-    <div className="header-container-main">
-      <div className="header-container">
+    <div className="header-container-main  ">
+      <div className="header-container ">
         <div className="logo-container">
           <div className="logo">
             <img

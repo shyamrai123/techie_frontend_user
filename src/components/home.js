@@ -223,17 +223,12 @@ export default function Home() {
                  
                   <div>
                     <label className="h6">Skills :</label>
-                    <div className="skills" style={{ columnGap: "0.1em" }}>
+                    <div className="skills container" style={{ columnGap: "0.1em" }} >
                       {e.skills &&
                         e.skills.split(",").map((i) => {
                           return (
-                            <div>
-                              <span
-                                style={{
-                                  fontSize: "0.8rem",
-                                  padding: "0 0.2rem 0 0.2rem",
-                                }}
-                                className="bg-secondary text-white rounded-pill"
+                            <div >
+                              <span className="skills-text"
                               >
                                 {i}
                               </span>

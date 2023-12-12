@@ -85,14 +85,16 @@
   grid-template-columns: repeat(2,1fr);
   flex-wrap: wrap;
   
+  
 
   .card{
-    width: 36em;
-    height:20em;
+    width: 40em;
+    height:21em;
     display: flex;
     border: 1px solid;
     position: relative;
     margin: 1em;
+    column-gap: 2em;
 
     .card-1{
       display: flex;
@@ -105,13 +107,35 @@
        position: absolute;
        left: 2em;
        top: 1em;
+
+
+       
+    .skills{
+      display: flex;
+      flex-wrap: wrap;
+      
+
+      
+        .skills-text{
+          display: flex;
+          flex-wrap: wrap;
+          margin-bottom: 0.1em;
+          font-size: 0.8em;
+          width:auto;
+          height: 2em;
+          border: 1px solid rgb(240, 240, 249);
+          border-radius: 10px;
+          margin-left: 0.5em;
+          padding: 0.1em;
+          background-color: grey;
+          color: white;
+
+        }
     }
 
 
 
-    .skills{
-      display: flex;
-      flex-wrap: wrap;
+      
 
     }
 
@@ -261,6 +285,31 @@
         position: absolute;
         left: 0.5em;
         top: 1em;
+
+        
+    .skills{
+      display: flex;
+      flex-wrap: wrap;
+      
+
+      
+        .skills-text{
+          display: flex;
+          flex-wrap: wrap;
+          margin-bottom: 0.1em;
+          font-size: 0.9em;
+          width:auto;
+          height: 2em;
+          border: 1px solid rgb(240, 240, 249);
+          border-radius: 10px;
+          margin-left: 0.5em;
+          padding: 0.1em;
+          background-color: grey;
+          color: white;
+
+        }
+
+      }
  
       }
 

@@ -37,7 +37,9 @@ const userId = localStorage.getItem("userId")
     }
   }, [token]);
   return (
-    <div className="job-container " style={{backgroundColor:'rgb(243,243,243)'}}>
+    <div className="job-container " 
+    style={{backgroundColor:'rgb(243,243,243)'}}
+    >
       <Header />
       <div className="viewhome container "  >
           <div>
@@ -50,7 +52,7 @@ const userId = localStorage.getItem("userId")
                     </span>
           </div>
         </div>
-        <div className="h2 container " style={{marginLeft:'3em'}}>{getJobDetails.title}</div>
+        <div className="h2 container ">{getJobDetails.title}</div>
         <div className="">
           <div className="hiring-div container">
             <div
@@ -203,39 +205,47 @@ const userId = localStorage.getItem("userId")
 
      
       </div>
-      <div className="container">
-        <h3  className="pt-2"style={{marginLeft:'1.7em'}}>About Company</h3>
+      
+        <div> <div className="aboutcomp container ">About Company</div></div>
         <hr className="container"/>
+        <div className="container">
         <div className="  card-company shadow border ">
          <div className="randoms" >
              <p   style={{backgroundColor: "#" + Math.floor(Math.random() * 16777215).toString(16), width:"3em", height:"3em", borderRadius:"50%",
-              display:"flex",alignItems:"center", justifyContent:"center", marginLeft:"1em"
+              display:"flex",alignItems:"center", justifyContent:"center", marginLeft:"1em", position:"absolute", top:"0.8em"
             }}>
             {getJobDetails.company_name &&
               getJobDetails.company_name.slice(0, 2).toUpperCase()}
           </p>
          </div>
-          <div className="locationcomp">
+          <div className="locationcomp container">
+            <div>
             {
               <div><b>{getJobDetails && getJobDetails.company_name}</b></div>
             }
-              {
+            </div>
+            <div>
+            {
               <div>{getJobDetails && getJobDetails.States}</div>
-            }
+              }
+              
+              </div> 
           </div>
-          <div className="  view ">
-            <span style={{marginLeft:'29em',cursor:"pointer"}}>View Company <FaArrowRightLong /></span>
+          <div className="view">
+            <span >View Company <FaArrowRightLong /></span>
           </div>
         </div>
       </div>
 
-         {/* ///footer// */}
-
-      <div className="border bg-secondary rounded pill pt-1 mt-b" style={{width:'15em',height:'7vh',textAlign:'center',marginLeft:'7em',marginTop:'1.5em',color:'white'}}>
-        <p>Verify Account to Apply</p>
+      <div className="container verify ">
+         <button  className="btn-verify">Verify Account to Apply</button>
       </div>
 
+         {/* ///footer// */}
 
+     
+
+{/* 
       <div className="footer mt-3">
                 <div className="inside">
                     <img src="https://res.cloudinary.com/cliqtick/image/upload/v1692600339/icons/logo-techie-_IE_uqk1bc.png" style={{ width: '7em', height: '3em', marginTop: '1em', marginLeft: '10em' }} />
@@ -251,7 +261,7 @@ const userId = localStorage.getItem("userId")
             <div className="links">
                 <img className="play" src="https://codezo.s3.amazonaws.com/static/img/google-play-download.png" />
             </div>
-            </div>
+            </div> */}
     </div>
   );
 }
