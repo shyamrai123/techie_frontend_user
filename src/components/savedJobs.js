@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Header from "./header";
+import "../styles/savedJobs.scss"
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserSaveJobs } from "../redux/slices/dataSlice";
@@ -28,48 +29,48 @@ function SavedJobs() {
   return (
     <div className="homePage-container">
       <Header />
+        
       <div className="container">
-        <h3 className="pt-4">Saved Jobs</h3>
-        <div className="homePage-cards-container container">
-          {getSavedjob &&
-            getSavedjob.map((e) => {
-              return (
-                <div className="card-container">
-                  <div className="card-container-01">
+      <div  ><h3 className="container  save  " >Saved Jobs</h3></div>
+        <div className="card-container  container">
+            { getSavedjob &&
+              getSavedjob?.map((e) => {
+                console.log(e?.value);
+                return (
+                  <div className="cards shadow border container  ">
+                  <div>
+                  <div className="card-1">
                     <div>
-                      <h5>{e.value.title}</h5>
-                      <h5 className="text-secondary ">{e.value.company_name}</h5>
+                      <h5 className="title" >{e?.value.title}</h5>
+                      <h5 className=" h5 text-secondary">{e?.value.company_name}</h5>
                       <div>
                         <label className="h6">Role :</label>
-                        <span>{e.value.role}</span>
+                        <span>{e?.value.role}</span>
                       </div>
                       <div>
                         <label className="h6">Functional Area : </label>
-                        <span>{e.value.functionalarea}</span>
+                        <span>{e?.value.functionalarea}</span>
                       </div>
                       <div>
                         <label className="h6">States/Cities :</label>
-                        <span>{e.value.States}</span>
+                        <span>{e?.value.States}</span>
                       </div>
                       <div>
                         <label className="h6">Employment Type :</label>
-                        <span>{e.value.employmenttype}</span>
+                        <span>{e?.value.employmenttype}</span>
                       </div>
                     </div>
-                  </div>
+                 
                   <div>
                     <label className="h6">Skills :</label>
-                    <div className="d-flex" style={{ columnGap: "0.3rem" }}>
-                      {e.skills &&
-                        e.skills.split(",").map((i) => {
+                    <div className="skills" style={{ columnGap: "0.1em" }} >
+                      {e?.value.skills &&
+                        e?.value.skills.split(",").map((i) => {
                           return (
                             <div>
-                              <span
-                                style={{
-                                  fontSize: "0.8rem",
-                                  padding: "0 0.2rem 0 0.2rem",
-                                }}
-                                className="bg-secondary text-white rounded-pill"
+                              <span className="skills-texts bg-secondary "
+                                  
+                              
                               >
                                 {i}
                               </span>
@@ -98,7 +99,7 @@ function SavedJobs() {
                         }}
                         className="bg-secondary text-white rounded-pill"
                       >
-                        {e.value.experience}
+                        {e?.value.experience}
                       </span>
                     </div>
                     <div>
@@ -108,12 +109,12 @@ function SavedJobs() {
                           padding: "0 0.2rem 0 0.2rem",
                         }}
                       >
-                        {e.value.salary && e.value.salary == "" ? (
+                        {e?.value.salary && e?.value.salary == "" ? (
                           <span className="bg-white"></span>
                         ) : (
                           <span className="bg-secondary text-white rounded-pill">
                             {" "}
-                            {e.value.salary}
+                            {e?.value.salary}
                           </span>
                         )}
                       </span>
@@ -126,23 +127,37 @@ function SavedJobs() {
                         }}
                         className="bg-secondary text-white rounded-pill"
                       >
-                        {e.value.openings}
+                        {e?.value.openings}
                       </span>
                     </div>
                   </div>
-                  <div className="card-profile">
-                    <p style={{backgroundColor: "#" + Math.floor(Math.random() * 16777215).toString(16),color:'white'}}>{e.value.company_name.slice(0, 2).toUpperCase()}</p>
-                  </div>
-                  <Link to={"/viewJOb/" + e.value._id}>
+                 </div>
+                </div>
+                <div>  
+                  <div className="card-2">
+                    <p className="random"
+                      style={{
+                        backgroundColor:
+                          "#" +
+                          Math.floor(Math.random() * 16777215).toString(16),
+                        color: "white",
+                      }}
+                    >
+                      {e?.value.company_name.slice(0, 2).toUpperCase()}
+                    </p>
+                 
+                  <Link to={"/viewJOb/" + e?.value._id}>
                     {" "}
                     <div className="viewjob">
-                      view job <BsArrowRight />
+                      View Job <BsArrowRight />
                     </div>
                   </Link>
                 </div>
-              );
-            })}
-        </div>
+                </div>
+                </div>
+                );
+              })}
+          </div>
       </div>
     </div>
   );

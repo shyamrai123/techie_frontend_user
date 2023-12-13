@@ -171,12 +171,13 @@
 ///footer///
 
 .foter{
-  height: 45vh;
+  height: 35vh;
   width: 95%;
   gap: 1em;
-  padding: 3em;
+  padding: 2em;
   margin: 3em auto 0;
   display: flex;
+  flex-wrap: wrap;
   position: relative;
   top:0em;
   justify-content: space-between;
@@ -185,82 +186,38 @@
   border-radius: 75px 75px 0 0;
   box-shadow: 0px -4px 6px 4px #fce6c5;
   background-color: white;
-  .inside{
-      .privacy{
-          color:white;
-          margin-left: 9em;
-      }
-      .copy{
-          color:rgb(187, 166, 133);
-          margin-left: 9em;
-      }
-      .website{
-        margin-top: 2.5em;
-        margin-left: 1em;
-        
-      }
-      .contact{
-        margin-top: 0em;
-        margin-left: 2em;
-      }
 
-      .mid{
-        margin-top: -3.3em;
-        margin-left: 7em;
-        display: flex;
-        flex-direction: column;
-        column-gap: 2em;
-        font-size: 50px;
 
-      }
-      .mid2{
-        margin-top: -3.5em;
-        margin-left: 10em;
-        display: flex;
-        flex-direction: column;
-        font-size: 50px;
-        column-gap:0em;
-        .mat{
-          line-height: 0.2em;
-        }
-       
-      }
 
-  }
-  .icons{
-      position: absolute;
-      bottom: 4.5em ;
-      left:2em;
-      font-size: 2em;
-      display: flex;
-      color:white;
-      justify-content: space-evenly;
-      margin-right: 3em;
-      column-gap: 0em;
-      width: 5em;
-      height:5vh;
-  }
+.techie-logo{
+  width: 10em;
+  height: 5em;
 }
 
-.bisearch{
-  position: absolute; 
-  top: 1.6em;
-   left: 35em;
-    font-size: 1.5em; 
-    color: gray;
-    opacity: 0.5;
+.sm-div{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1em;
+  margin-bottom: 0.2em;
 }
-.inpsearch{
-  position: relative;
-   top: 0.1em;
-    left: 0.25em; 
-    border-radius: 50px; 
-    width: 30em;
-     height: 3em;
-     border: solid rgb(232,235,238);
-     text-align:center;
-    //  opacity:0.5;
+.sm-img{
+  width: 2em;
 }
+
+.resourses{
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.map{
+  width: 20em;
+}
+
+}
+
+
+
 
 
 @media only screen and (min-width:320px) and (max-width:480px) {
@@ -349,6 +306,52 @@
 
 }
 
+.foter{
+  height: 45vh;
+  width: 95%;
+  gap: 1em;
+  padding: 3em;
+  margin: 3em auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  top:0em;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-top: 1px solid #f4b34a;
+  border-radius: 75px 75px 0 0;
+  box-shadow: 0px -4px 6px 4px #fce6c5;
+  background-color: white;
+
+
+
+.techie-logo{
+  width: 10em;
+  height: 5em;
+}
+
+.sm-div{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+.sm-img{
+  width: 2em;
+}
+
+.resourses{
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.map{
+  width: 15em;
+}
+
+
+}
 
     
 

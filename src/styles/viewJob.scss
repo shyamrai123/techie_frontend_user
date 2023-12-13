@@ -1,5 +1,6 @@
 .job-container{
           width: 100%;
+          position: relative;
          
     .viewhome{
         display: flex;
@@ -58,7 +59,7 @@
             border: 1px solid black;
             border-radius: 20px;
             background-color: grey;
-            margin-right: 1em;
+            // margin-right: 1em;
             color: white;
         }
 
@@ -77,17 +78,24 @@
         }
 
     }
+  
+    .viewjobsDetails-main{
 
+        width: 100%;
+    }
 
     .viewjobsDetails {
+        
          display: flex;
          flex-wrap: wrap;
          justify-content: space-between;
          align-items: center;
+        
 
       
          .viewjobsDetails-1{
             margin-top: 1.3em;
+            
          }
 
          .viewjobsDetails-2{
@@ -99,6 +107,7 @@
     .description{
         display: flex;
         flex-wrap: wrap;
+        width: 100%;
     }
 
 
@@ -146,7 +155,7 @@
        }
 
        .btn-verify{
-        padding: 0.5em 2em 0.5em 2em;
+        // padding: 0.5em 2em 0.5em 2em;
         border-radius: 10px;
         color: white;
         background-color: rgb(80, 78, 78);
@@ -155,12 +164,59 @@
 
 }
 
+.foter{
+    height: 35vh;
+    width: 95%;
+    gap: 1em;
+    padding: 2em;
+    margin: 3em auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    top:0em;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-top: 1px solid #f4b34a;
+    border-radius: 75px 75px 0 0;
+    box-shadow: 0px -4px 6px 4px #fce6c5;
+    background-color: white;
+  
+  
+  
+  .techie-logo{
+    width: 10em;
+    height: 5em;
+  }
+  
+  .sm-div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1em;
+    margin-bottom: 0.2em;
+  }
+  .sm-img{
+    width: 2em;
+  }
+  
+  .resourses{
+    font-weight: bold;
+    font-size: 2em;
+  }
+  
+  .map{
+    width: 20em;
+  }
+  
+  }
+
 
 @media only screen and (min-width:320px) and (max-width:480px) {
     .job-container{
         width: 100%;
         position: relative;
   .viewhome{
+      width: 100%;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
@@ -241,6 +297,7 @@
 
 
   .viewjobsDetails {
+       width: 100%;
        display: flex;
        flex-wrap: wrap;
        justify-content: space-between;
@@ -260,6 +317,7 @@
   .description{
       display: flex;
       flex-wrap: wrap;
+      width: 100%;
   }
 
 
@@ -308,10 +366,57 @@
      }
 
      .btn-verify{
-      padding: 0.5em 2em 0.5em 2em;
+    //   padding: 0.5em 2em 0.5em 2em;
       border-radius: 10px;
       color: white;
       background-color: rgb(80, 78, 78);
      }
     }
+
+    .foter{
+        height: 45vh;
+        width: 95%;
+        gap: 1em;
+        padding: 3em;
+        margin: 3em auto 0;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        top:0em;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-top: 1px solid #f4b34a;
+        border-radius: 75px 75px 0 0;
+        box-shadow: 0px -4px 6px 4px #fce6c5;
+        background-color: white;
+      
+      
+      
+      .techie-logo{
+        width: 10em;
+        height: 5em;
+      }
+      
+      .sm-div{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 1em;
+        margin-bottom: 2em;
+      }
+      .sm-img{
+        width: 2em;
+      }
+      
+      .resourses{
+        font-weight: bold;
+        font-size: 2em;
+      }
+      
+      .map{
+        width: 15em;
+      }
+      
+      
+      }
 }

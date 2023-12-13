@@ -11,6 +11,7 @@ import Header from "./header";
 import { BsBookmark } from "react-icons/bs";
 import { verifyToken } from "../utils/utlis";
 import "../styles/viewJob.scss";
+
 function ViewJob() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ const userId = localStorage.getItem("userId")
     }
   }, [token]);
   return (
-    <div className="job-container " 
+    <div className="job-container w-100%" 
     style={{backgroundColor:'rgb(243,243,243)'}}
     >
       <Header />
@@ -80,7 +81,7 @@ const userId = localStorage.getItem("userId")
       <div className="data">
        
         {/* diplay job details */}
-        <div className="shadow border container  ">
+        <div className=" viewjobsDetails-main  shadow border container w-90% ">
         <div className=" viewjobsDetails container">
           <div className="viewjobsDetails-1">
             <div>
@@ -133,7 +134,7 @@ const userId = localStorage.getItem("userId")
           </div>
         </div>
 
-        <div className="description">
+        {/* <div className="description">
           <label>JOB DESCRIPTION</label>
           <h6>
             Thought Minds - is a global leader in providing solutions on LLM and
@@ -197,7 +198,7 @@ const userId = localStorage.getItem("userId")
               related role.
             </li>
           </ul>
-        </div>
+        </div> */}
         <div className="h6">
           Location : {getJobDetails && getJobDetails.States}
         </div>
@@ -207,7 +208,6 @@ const userId = localStorage.getItem("userId")
       </div>
       
         <div> <div className="aboutcomp container ">About Company</div></div>
-        <hr className="container"/>
         <div className="container">
         <div className="  card-company shadow border ">
          <div className="randoms" >
@@ -245,23 +245,38 @@ const userId = localStorage.getItem("userId")
 
      
 
-{/* 
-      <div className="footer mt-3">
-                <div className="inside">
-                    <img src="https://res.cloudinary.com/cliqtick/image/upload/v1692600339/icons/logo-techie-_IE_uqk1bc.png" style={{ width: '7em', height: '3em', marginTop: '1em', marginLeft: '10em' }} />
-                    <p className="privacy">Privacy Policy . Terms & Conditions . Beware of Fraudsters</p>
-                    <p className="copy">Copyright © 2023 techiepanda.in | All Rights Reserved</p>
-                    <div className="icons">
-                        <FaTwitter />
-                        <BsInstagram />
-                        <AiFillLinkedin />
-                        <CiMail />
-                    </div>
-                </div>
-            <div className="links">
-                <img className="play" src="https://codezo.s3.amazonaws.com/static/img/google-play-download.png" />
-            </div>
-            </div> */}
+         <div className="foter container">
+               <div className="techie-div">
+                              <div>
+                                  <img className="techie-logo" src="https://res.cloudinary.com/cliqtick/image/upload/v1692600339/icons/logo-techie-_IE_uqk1bc.png"/>
+                              </div>
+                              <div className="sm-div">
+                                 <div><img className="sm-img" src="https://res.cloudinary.com/cliqtick/image/upload/v1686120164/techei_panda_website_images/Facebook-Icon_orvpxl.png" /></div>
+                                 <div><img className="sm-img" src="https://res.cloudinary.com/cliqtick/image/upload/v1686120165/techei_panda_website_images/LinkedIn-Icon_zcra9f.png" /></div>
+                                 <div> <img className="sm-img" src="https://res.cloudinary.com/cliqtick/image/upload/v1686120164/techei_panda_website_images/Instagram-Icon_ijchts.png" /></div>
+                              </div>
+                              <div className="" > https://techiepanda.in/</div>
+                              <div> +91 720 740 1718</div>
+               </div>
+               <div >
+                  <div className="resources" >Site Map</div>
+                  <div  className="resources">Resources</div>
+                  <div  className="resources">Blog</div>
+                  <div>FAQ</div>
+               </div>
+               <div className="techie-about">
+                   <div>Techie Panda</div>
+                   <div>About Us</div>
+                   <div>Meet Techie Panda</div>
+                   <div>Job Assistance</div>
+                   <div>Refund Policy</div>
+                   <div>Privacy and Cookie Policy</div>
+                   <div>Terms and Conditions</div>
+               </div>
+               <div className="techie-map">
+                   <div><iframe  className="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.0386556256476!2d83.23167277586289!3d17.74281769246731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3967274842f4df%3A0x9711e68b73419d51!2sTechiepanda!5e0!3m2!1sen!2sin!4v1696832682466!5m2!1sen!2sin"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"/></div>
+               </div>
+      </div>
     </div>
   );
 }
