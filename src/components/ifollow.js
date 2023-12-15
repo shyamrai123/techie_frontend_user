@@ -12,6 +12,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/ifollow.scss"
 import "../styles/home.scss"
 import Footer from "./footer";
+import Navigationpanel from "./navigationpanel";
 function Ifollow() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -96,6 +97,7 @@ function Ifollow() {
       </div>
 
       <Footer/>
+      <Navigationpanel/>
             </div>
   );
 }

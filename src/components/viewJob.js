@@ -12,6 +12,7 @@ import { BsBookmark } from "react-icons/bs";
 import { verifyToken } from "../utils/utlis";
 import "../styles/viewJob.scss";
 import Footer from "./footer";
+import Navigationpanel from "./navigationpanel";
 
 function ViewJob() {
   const dispatch = useDispatch();
@@ -253,6 +254,7 @@ const userId = localStorage.getItem("userId")
      
 
        <Footer/>
+       <Navigationpanel/>
     </div>
   );
 }

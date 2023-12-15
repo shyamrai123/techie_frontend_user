@@ -10,6 +10,7 @@ import "../styles/viewCompany.scss"
 import { BsBookmark,BsArrowRight } from "react-icons/bs";
 import { verifyToken } from "../utils/utlis";
 import Footer from "./footer";
+import Navigationpanel from "./navigationpanel";
 const ViewCompany = () => {
   const company = useSelector((state) => state.User.value.company);
   console.log(company);
@@ -267,6 +268,7 @@ const ViewCompany = () => {
       </div>
       </div>
       <Footer/>
+      <Navigationpanel/>
             </div>
 
   );

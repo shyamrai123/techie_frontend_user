@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllJobs } from "../redux/slices/dataSlice";
 import Header from "./header";
 import Footer from "./footer";
+import Navigationpanel from "./navigationpanel";
 
 export default function Home() {
   const token = localStorage.getItem("token");
@@ -321,6 +322,7 @@ export default function Home() {
       )}
 
      <Footer/>
+     <Navigationpanel/>
     </div>
   );
 }

@@ -73,7 +73,7 @@ function Header() {
         style={{ zIndex: "1" }}
       >
         <ul>
-          <li onClick={() => navigate("/profile=/:userId")}>My Profile</li>
+          <li onClick={() => navigate("/profile/:userId")}>My Profile</li>
           <li>
             <Link
               to={"/savedJobs/" + userId}

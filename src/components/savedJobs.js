@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserSaveJobs } from "../redux/slices/dataSlice";
 import {BsArrowRight} from "react-icons/bs"
 import { verifyToken } from "../utils/utlis";
+import Navigationpanel from "./navigationpanel";
 function SavedJobs() {
   const params = useParams();
   console.log(params);
@@ -159,6 +160,7 @@ function SavedJobs() {
               })}
           </div>
       </div>
+      <Navigationpanel/>
     </div>
   );
 }

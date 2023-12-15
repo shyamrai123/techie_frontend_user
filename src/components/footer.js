@@ -2,7 +2,7 @@ import React from 'react'
 import "../styles/footer.scss"
 function Footer() {
   return (
-    <div className="foter container">
+    <div className="foter container ">
     <div className="techie-div">
                    <div className="techie-logo-container">
                        <img className="techie-logo" src="https://res.cloudinary.com/cliqtick/image/upload/v1692600339/icons/logo-techie-_IE_uqk1bc.png"/>
