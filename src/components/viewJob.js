@@ -76,7 +76,8 @@ function ViewJob() {
         </div>
       </div>
 
-      <div className="view-jobdescription container  border shadow ">
+       <div className="view-jobdescription-outer ">
+       <div className="view-jobdescription container  border shadow ">
         <div className="view-jobdescription-inner conatiner">
           <div className="company-roles-1">
             <div>
@@ -157,12 +158,14 @@ function ViewJob() {
           </div>
         </div>
       </div>
+       </div>
 
       <div className="about-comp container ">
         <div>About Company</div>
       </div>
 
-      <div className="about-comp-details container border shadow ">
+       <div className="about-comp-details-outer">
+       <div className="about-comp-details container border shadow ">
         <div className="about-comp-details-inner">
           <div className="profile-comp">
             <p
@@ -212,6 +215,7 @@ function ViewJob() {
               })
           } */}
       </div>
+       </div>
       {/* ///footer// */}
       <Footer />
       <Navigationpanel />

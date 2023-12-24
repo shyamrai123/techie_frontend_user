@@ -1,7 +1,5 @@
 .viewjob{
     width: 100%;
-   
-
     .viewjob-details{
         width: 100%;
       
@@ -62,8 +60,16 @@
     }
 
 
+   .view-jobdescription-outer{
+    width: 100%;
+   
+   
+   
     .view-jobdescription{
         width: 100%;
+        border-radius: 10px;
+        background-color: white;
+       
       
         .view-jobdescription-inner{
             width: 100%;
@@ -139,6 +145,7 @@
             }
         }
     }
+   }
 
     .descriptions{
         width: 100%;
@@ -161,67 +168,72 @@
         }
     }
 
-    .about-comp-details{
+    .about-comp-details-outer{
         width: 100%;
-        padding: 1em;
-        margin-bottom: 2em;
-        .about-comp-details-inner{
-
-           .profile-comp{
-            display:flex;
-            justify-content: flex-start;
-            column-gap: 2em;
-            .random{
-                width: 3em;
-                height: 3em;
-                border-radius: 50%;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-               
-            }
-            
-             div:nth-child(1){
-                font-size: 1.5em;
-                font-weight: bold;
-             }
-             div:nth-child(2){
-                font-size: 1em;
-                font-weight: bold;
-
-                .loc{
-                    font-size: 1em;
-                    font-weight: lighter;
-                    color: gray;
+        padding: 0.3em 0.7em 0.5em 0.7em;
+        .about-comp-details{
+            width: 100%;
+            padding: 0.4em;
+            margin-bottom: 2em;
+            border-radius: 10px;
+            background-color: white;
+            .about-comp-details-inner{
+               .profile-comp{
+                display:flex;
+                justify-content: flex-start;
+                column-gap: 2em;
+                .random{
+                    width: 3em;
+                    height: 3em;
+                    border-radius: 50%;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                   
                 }
                 
-             }
-             
-
-           }
-
-           .abt-comp{
-            font-size: 1em;
-            font-weight: bold;
-            color: grey;
-   
-            padding: 0em 0em 0em 0.7em;
-        }
-        .abt-data{
-            padding: 0.5em 0em 1em 0.3em;
-        }
-
-
-        }
-
-        .view-comp{
-            display: flex;
-            justify-content: flex-end;
-            align-items: end;
-        }
-        .vc{
-            text-decoration: solid;
-            color: black;
+                 div:nth-child(1){
+                    font-size: 1.5em;
+                    font-weight: bold;
+                 }
+                 div:nth-child(2){
+                    font-size: 1em;
+                    font-weight: bold;
+    
+                    .loc{
+                        font-size: 1em;
+                        font-weight: lighter;
+                        color: gray;
+                    }
+                    
+                 }
+                 
+    
+               }
+    
+               .abt-comp{
+                font-size: 1em;
+                font-weight: bold;
+                color: grey;
+       
+                padding: 0em 0em 0em 0.7em;
+            }
+            .abt-data{
+                padding: 0.5em 0em 1em 0.3em;
+            }
+    
+    
+            }
+    
+            .view-comp{
+                display: flex;
+                justify-content: flex-end;
+                align-items: end;
+            }
+            .vc{
+                text-decoration: solid;
+                color: black;
+            }
         }
     }
 
@@ -297,8 +309,13 @@
         }
     
     
+    .view-jobdescription-outer{
+        width: 100%;
+        padding: 0.7em;
         .view-jobdescription{
             width: 100%;
+            padding:1em;
+            background-color: white;
 
             .description{
                 width: 100%;
@@ -380,6 +397,7 @@
             }
          
         }
+    }
 
     
         .about-comp{

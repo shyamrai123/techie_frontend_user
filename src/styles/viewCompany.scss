@@ -19,26 +19,34 @@
     color: rgb(76, 74, 74);
   }
 
-  .viewcompany-details{
-     padding: 1em;
-    .viewcompany-profile{
-      display: flex;
-      column-gap: 1em;
+   .viewcompany-details-outer{
+    width: 100%;
+    padding: 0.6em;
+    .viewcompany-details{
+    
+      border-radius: 10px;
+     .viewcompany-profile{
+       display: flex;
+       column-gap: 1em;
+ 
+       .random{
+         width: 3em;
+         height: 3em;
+         border: 1px solid;
+         border-radius: 50%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+       }
+     }
+ 
+   }
+   }
 
-      .random{
-        width: 3em;
-        height: 3em;
-        border: 1px solid;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-
-  }
-
-  .viewcompany-deatils-btn{
+   .viewcompany-deatils-btn-outer{
+    width: 100%;
+    padding: 0.6em;
+    .viewcompany-deatils-btn{
       width: 100%;
       padding: 1.5em;
       margin-top: 1em;
@@ -96,6 +104,7 @@
 
   
 }
+   }
 
 .viewcompany-home{
   width: 100%;
