@@ -42,7 +42,7 @@ function SavedJobs() {
                   <div>
                   <div className="card-1">
                     <div>
-                      <h5 className="title" >{e?.value.title}</h5>
+                      <h5 className="title" >{e?.value?.title}</h5>
                       <h5 className=" h5 text-secondary">{e?.value.company_name}</h5>
                       <div>
                         <label className="h6">Role :</label>

@@ -26,11 +26,20 @@ const dataSlice = createSlice({
       getSavedJob: [],
       postFollowCompany : {},
       getUserFollowedComp:[],
-      getSearchJob:[]
-    },
+      getSearchJob:[],
+      searchOn : false,
+      lastSkill : ""
+    }
   },
 
-  reducers: {},
+  reducers: {
+    searchState : (state,action) => {
+      state.value.searchOn = action.payload
+    },
+    lastSkillStored : (state,action) => {
+      state.value.lastSkill = action.payload
+    }
+  },
 
   extraReducers: (builder) => {
     builder.addCase(postData.fulfilled, (state, action) => {
@@ -331,7 +340,6 @@ export const saveJob = createAsyncThunk("saveJob", async({jobId}) => {
 })
 
 export const getUserSaveJobs = createAsyncThunk("getUserSavedJobs",async({userId}) => {
-  
   const token = localStorage.getItem("token")
   const {data} = await axios.get(baseUrl + "/jobs/savedJobs/all/" + userId,
   {
@@ -367,7 +375,9 @@ export const getUserFollowedComp = createAsyncThunk("UserFollowedCOmpanies", asy
 })
 
 export const getSearchJobs = createAsyncThunk("getSearchJobs", async({searchedInput}) => {
-  const {data} = await axios.get(baseUrl = + "/search/search?search="+searchedInput)
+  const {data} = await axios.get(baseUrl + "/search/search?search="+searchedInput)
   return data
 })
+
+export const { searchState , lastSkillStored} = dataSlice.actions;
 export default dataSlice.reducer;
