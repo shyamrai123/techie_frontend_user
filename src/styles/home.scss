@@ -1,6 +1,7 @@
 ///home///
 
 .home-container {
+  background-color: white;
   .filter {
     width: 100%;
     height: 4em;
@@ -35,11 +36,10 @@
         gap: 2em;
         .jobs-single {
           width: 100%;
-
+          border-radius: 10px;
           display: flex;
           flex-direction: column;
           row-gap: 1em;
-          border: 1px solid;
           padding: 2em 2em 1.5rem 2em;
           position: relative;
           .card-1 {
@@ -94,6 +94,7 @@
             border: 1px solid;
             border-radius: 50%;
             color: white;
+            
             position: absolute;
             top: 10%;
             right: 10%;
@@ -145,7 +146,7 @@
             display: flex;
             flex-direction: column;
             row-gap: 1em;
-            border: 1px solid;
+            // border: 1px solid;
             padding: 2em 2em 1.5rem 2em;
             position: relative;
             .card-1 {
@@ -154,9 +155,10 @@
               align-items: start;
               flex-direction: column;
               .hirings {
+     
                 .hiring-01 {
                   font-size: 0.7em;
-                  padding: 0 0.2em 0 0.3em;
+                 
                 }
               }
               .skills {
@@ -186,7 +188,7 @@
               .view-job-link {
                 .viewjob {
                   color: black;
-                  text-decoration: solid white;
+                  text-decoration: solid rgb(0, 0, 0);
                 }
               }
             }

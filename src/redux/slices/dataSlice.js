@@ -354,7 +354,7 @@ export const followCompany = createAsyncThunk("followCompany", async({cid}) => {
   const userId = localStorage.getItem("userId")
    const token = localStorage.getItem("token");
   
-   const {data} = await axios.post(baseUrl + `/company/followComp/${cid}`, {userId : userId},
+   const {data} = await axios.post(baseUrl + `/company/followcompany/${cid}`, {userId : userId},
    {
     headers: {
       Authorization : "Bearer " + token
@@ -365,7 +365,7 @@ export const followCompany = createAsyncThunk("followCompany", async({cid}) => {
 export const getUserFollowedComp = createAsyncThunk("UserFollowedCOmpanies", async({userId}) => {
   const token = localStorage.getItem("token");
 
-  const {data} = await axios.get(baseUrl +"/company/followedComp/" + userId,
+  const {data} = await axios.get(baseUrl +"/company/getfollowedcompany/" + userId,
   {
     headers : {
       Authorization : "Bearer " + token

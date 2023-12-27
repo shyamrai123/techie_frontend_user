@@ -8,6 +8,7 @@ import { getAllJobs } from "../redux/slices/dataSlice";
 import Header from "./header";
 import Footer from "./footer";
 import Navigationpanel from "./navigationpanel";
+import { verifyToken } from "../utils/utlis";
 
 export default function Home() {
   const token = localStorage.getItem("token");
@@ -32,7 +33,7 @@ export default function Home() {
   useEffect(() => {
     dispatch(getAllJobs());
 
-    if (!token) {
+    if (!verifyToken(email,userId,token)) {
       navigate("/login");
       window.location.reload();
     }
@@ -43,7 +44,7 @@ export default function Home() {
   }, [searchState]);
 
   return (
-    <div className="home-container" style={{ backgroundColor: "rgb(243,243,243)" }}>
+    <div className="home-container">
       <Header />
       <div className=" filter container " onClick={filter}>
         <div className="filter-select ">
@@ -77,7 +78,7 @@ export default function Home() {
              {getSearchJob &&
                getSearchJob.map((e) => {
                  return (
-                   <div className="jobs-single shadow border container ">
+                   <div className="jobs-single shadow-lg  container ">
                      <div>
                        {" "}
                        <div className="card-1">
@@ -114,7 +115,7 @@ export default function Home() {
                                e.skills.split(",").map((i) => {
                                  return (
                                    <div>
-                                     <Link to={"/searchSkill/" + i}>
+                                     <Link to={"/searchSkill/" + i} style={{textDecoration:'solid'}}>
                                        <span className="skills-text bg-secondary">
                                          {i}
                                        </span>
@@ -124,19 +125,13 @@ export default function Home() {
                                })}
                            </div>
                          </div>
-                         <div className="d-flex flex-wrap gap-1 container   hirings">
-                           <div>
-                             <span 
-                              
-                               className="hiring-01 text-success border border-success rounded-pill"
-                             >
-                               HIRING
-                             </span>
-                           </div>
+                         <label className="h6">Hirings :</label>
+                         <div className="d-flex flex-wrap gap-1 container   hirings ">
+                         
                            <div>
                              <span
                               
-                               className=" hiring-01 bg-secondary text-white rounded-pill"
+                               className=" hiring-01 bg-secondary text-white rounded-pill p-1"
                              >
                                {e.experience}
                              </span>
@@ -149,7 +144,7 @@ export default function Home() {
                                {e.salary && e.salary == "" ? (
                                  <span className="bg-white"></span>
                                ) : (
-                                 <span className="bg-secondary text-white rounded-pill">
+                                 <span className="bg-secondary text-white rounded-pill p-1">
                                 
                                    {e.salary}
                                  </span>
@@ -159,7 +154,7 @@ export default function Home() {
                            <div>
                              <span
                              
-                               className=" hiring-01 bg-secondary text-white rounded-pill"
+                               className=" hiring-01 bg-secondary text-white rounded-pill p-1"
                              >
                                {e.openings}
                              </span>
@@ -203,7 +198,7 @@ export default function Home() {
             {filtJobs &&
               filtJobs.map((e) => {
                 return (
-                  <div className="jobs-single shadow border container ">
+                  <div className="jobs-single shadow border  container ">
                     <div>
                       {" "}
                       <div className="card-1">
@@ -240,7 +235,7 @@ export default function Home() {
                               e.skills.split(",").map((i) => {
                                 return (
                                   <div>
-                                    <Link to={"/searchSkill/" + i}>
+                                    <Link to={"/searchSkill/" + i} style={{textDecoration:'solid'}}>
                                       <span className="skills-text bg-secondary">
                                         {i}
                                       </span>
@@ -250,32 +245,23 @@ export default function Home() {
                               })}
                           </div>
                         </div>
+                        <label className="h6">Hirings :</label>
                         <div className="d-flex flex-wrap gap-1 container   hirings">
                           <div>
-                            <span 
-                             
-                              className="hiring-01 text-success border border-success rounded-pill"
-                            >
-                              HIRING
-                            </span>
-                          </div>
-                          <div>
                             <span
-                             
-                              className=" hiring-01 bg-secondary text-white rounded-pill"
+                              className=" hiring-01 bg-secondary text-white rounded-pill p-1"
                             >
                               {e.experience}
                             </span>
                           </div>
                           <div>
                             <span
-                            
                               className="hiring-01"
                             >
                               {e.salary && e.salary == "" ? (
                                 <span className="bg-white"></span>
                               ) : (
-                                <span className="bg-secondary text-white rounded-pill">
+                                <span className="bg-secondary text-white rounded-pill p-1">
                                
                                   {e.salary}
                                 </span>
@@ -285,7 +271,7 @@ export default function Home() {
                           <div>
                             <span
                             
-                              className=" hiring-01 bg-secondary text-white rounded-pill"
+                              className=" hiring-01 bg-secondary text-white rounded-pill p-1"
                             >
                               {e.openings}
                             </span>
@@ -329,7 +315,8 @@ export default function Home() {
               {jobData &&
                 jobData.map((e) => {
                   return (
-                    <div className="jobs-single shadow border container ">
+                    <Link to={"/viewJOb/" + e._id} className="link" style={{textDecoration:'solid',color:'black'}}>
+                    <div className="jobs-single shadow border     container ">
                       <div>
                         {" "}
                         <div className="card-1">
@@ -360,13 +347,12 @@ export default function Home() {
                             <label className="h6">Skills :</label>
                             <div
                               className="skills container"
-                              
                             >
                               {e.skills &&
                                 e.skills.split(",").map((i) => {
                                   return (
                                     <div>
-                                      <Link to={"/searchSkill/" + i}>
+                                      <Link to={"/searchSkill/" + i} style={{textDecoration:'solid'}}>
                                         <span className="skills-text bg-secondary">
                                           {i}
                                         </span>
@@ -376,32 +362,20 @@ export default function Home() {
                                 })}
                             </div>
                           </div>
-                          <div className="d-flex flex-wrap gap-1 container   hirings">
+                          
+                            <label className="h6">Hiring :</label>
+                            <div className="  container d-flex  flex-wrap   hirings">
                             <div>
-                              <span 
-                               
-                                className="hiring-01 text-success border border-success rounded-pill"
-                              >
-                                HIRING
-                              </span>
-                            </div>
-                            <div>
-                              <span
-                               
-                                className=" hiring-01 bg-secondary text-white rounded-pill"
-                              >
+                              <span className=" hiring-01 bg-secondary p-1  text-white rounded-pill p-1">
                                 {e.experience}
                               </span>
                             </div>
                             <div>
-                              <span
-                              
-                                className="hiring-01"
-                              >
+                              <span className="hiring-01">
                                 {e.salary && e.salary == "" ? (
                                   <span className="bg-white"></span>
                                 ) : (
-                                  <span className="bg-secondary text-white rounded-pill">
+                                  <span className="bg-secondary text-white  p-1  rounded-pill p-1">
                                  
                                     {e.salary}
                                   </span>
@@ -409,13 +383,11 @@ export default function Home() {
                               </span>
                             </div>
                             <div>
-                              <span
-                              
-                                className=" hiring-01 bg-secondary text-white rounded-pill"
-                              >
+                              <span className=" hiring-01 bg-secondary text-white p-1 rounded-pill p-1">
                                 {e.openings}
                               </span>
                             </div>
+                             
                           </div>
                         </div>
                       </div>
@@ -443,6 +415,7 @@ export default function Home() {
                         {e.company_name.slice(0, 2).toUpperCase()}
                       </p>
                     </div>
+</Link>
                   );
                 })}
             </div>

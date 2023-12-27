@@ -28,115 +28,112 @@ function SavedJobs() {
     }
   }, [token]);
   return (
-    <div className="homePage-container">
+    <div className="home-container">
       <Header />
         
-      <div className="container">
-      <div  ><h3 className="container  save  " >Saved Jobs</h3></div>
-        <div className="card-container  container">
-            { getSavedjob &&
-              getSavedjob?.map((e) => {
-                console.log(e?.value);
+      <div className="jobs-container-main  container">
+        <div className="jobs-container-inner">
+          <div className="jobs-container">
+            {getSavedjob &&
+              getSavedjob.map((e) => {
                 return (
-                  <div className="cards shadow border container  ">
-                  <div>
-                  <div className="card-1">
+                  <div className="jobs-single shadow border container ">
                     <div>
-                      <h5 className="title" >{e?.value?.title}</h5>
-                      <h5 className=" h5 text-secondary">{e?.value.company_name}</h5>
-                      <div>
-                        <label className="h6">Role :</label>
-                        <span>{e?.value.role}</span>
+                      {" "}
+                      <div className="card-1">
+                        <div>
+                          <h5 className="title">{e.value.title}</h5>
+                          <h5 className=" h5 text-secondary">
+                            {e.value.company_name}
+                          </h5>
+                          <div>
+                            <label className="h6">Role :</label>
+                            <span>{e.value.role}</span>
+                          </div>
+                          <div>
+                            <label className="h6">Functional Area : </label>
+                            <span>{e.value.functionalarea}</span>
+                          </div>
+                          <div>
+                            <label className="h6">States/Cities :</label>
+                            <span>{e.value.States}</span>
+                          </div>
+                          <div>
+                            <label className="h6">Employment Type :</label>
+                            <span>{e.value.employmenttype}</span>
+                          </div>
+                        </div>
+
+                        <div>
+                          <label className="h6">Skills :</label>
+                          <div
+                            className="skills container"
+                            
+                          >
+                            {e.value.skills &&
+                              e.value.skills.split(",").map((i) => {
+                                return (
+                                  <div>
+                                    <Link to={"/searchSkill/" + i} style={{textDecoration:'solid'}}>
+                                      <span className="skills-text bg-secondary">
+                                        {i}
+                                      </span>
+                                    </Link>
+                                  </div>
+                                );
+                              })}
+                          </div>
+                        </div>
+                        <label className="h6">Hirings :</label>
+                        <div className="d-flex flex-wrap gap-1 container   hirings">
+                          <div>
+                            <span
+                             
+                              className=" hiring-01 bg-secondary text-white rounded-pill p-1"
+                            >
+                              {e.value.experience}
+                            </span>
+                          </div>
+                          <div>
+                            <span
+                            
+                              className="hiring-01"
+                            >
+                              {e.value.salary && e.value.salary == "" ? (
+                                <span className="bg-white"></span>
+                              ) : (
+                                <span className="bg-secondary text-white rounded-pill p-1">
+                               
+                                  {e.value.salary}
+                                </span>
+                              )}
+                            </span>
+                          </div>
+                          <div>
+                            <span
+                            
+                              className=" hiring-01 bg-secondary text-white rounded-pill p-1"
+                            >
+                              {e.value.openings}
+                            </span>
+                          </div>
+                        </div>
                       </div>
-                      <div>
-                        <label className="h6">Functional Area : </label>
-                        <span>{e?.value.functionalarea}</span>
-                      </div>
-                      <div>
-                        <label className="h6">States/Cities :</label>
-                        <span>{e?.value.States}</span>
-                      </div>
-                      <div>
-                        <label className="h6">Employment Type :</label>
-                        <span>{e?.value.employmenttype}</span>
-                      </div>
                     </div>
-                 
-                  <div>
-                    <label className="h6">Skills :</label>
-                    <div className="skills" style={{ columnGap: "0.1em" }} >
-                      {e?.value.skills &&
-                        e?.value.skills.split(",").map((i) => {
-                          return (
-                            <div>
-                              <span className="skills-texts bg-secondary "
-                                  
-                              
-                              >
-                                {i}
-                              </span>
-                            </div>
-                          );
-                        })}
-                    </div>
-                  </div>
-                  <div className="d-flex gap-1 ">
-                    <div>
-                      <span
-                        style={{
-                          fontSize: "0.7rem",
-                          padding: "0 0.2rem 0 0.3rem",
-                        }}
-                        className=" text-success border border-success rounded-pill"
+
+                    <div className="card-2">
+                      <Link
+                        className="view-job-link"
+                        to={"/viewJOb/" + e.value._id}
                       >
-                        HIRING
-                      </span>
+                        {" "}
+                        <div className="viewjob">
+                          View Job <BsArrowRight />
+                        </div>
+                      </Link>
                     </div>
-                    <div>
-                      <span
-                        style={{
-                          fontSize: "0.7rem",
-                          padding: "0 0.2rem 0 0.2rem",
-                        }}
-                        className="bg-secondary text-white rounded-pill"
-                      >
-                        {e?.value.experience}
-                      </span>
-                    </div>
-                    <div>
-                      <span
-                        style={{
-                          fontSize: "0.7rem",
-                          padding: "0 0.2rem 0 0.2rem",
-                        }}
-                      >
-                        {e?.value.salary && e?.value.salary == "" ? (
-                          <span className="bg-white"></span>
-                        ) : (
-                          <span className="bg-secondary text-white rounded-pill">
-                            {" "}
-                            {e?.value.salary}
-                          </span>
-                        )}
-                      </span>
-                    </div>
-                    <div>
-                      <span
-                        style={{
-                          fontSize: "0.7rem",
-                          padding: "0 0.2rem 0 0.2rem",
-                        }}
-                        className="bg-secondary text-white rounded-pill"
-                      >
-                        {e?.value.openings}
-                      </span>
-                    </div>
-                  </div>
-                 </div>
-                </div>
-                <div>  
-                  <div className="card-2">
-                    <p className="random"
+                    <p
+                      className="random"
                       style={{
                         backgroundColor:
                           "#" +
@@ -144,21 +141,13 @@ function SavedJobs() {
                         color: "white",
                       }}
                     >
-                      {e?.value.company_name.slice(0, 2).toUpperCase()}
+                      {e.value.company_name.slice(0, 2).toUpperCase()}
                     </p>
-                 
-                  <Link to={"/viewJOb/" + e?.value._id}>
-                    {" "}
-                    <div className="viewjob">
-                      View Job <BsArrowRight />
-                    </div>
-                  </Link>
-                </div>
-                </div>
-                </div>
+                  </div>
                 );
               })}
           </div>
+        </div>
       </div>
       <Navigationpanel/>
     </div>

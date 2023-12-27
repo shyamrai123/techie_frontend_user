@@ -33,11 +33,11 @@ export default function Login() {
         </div>
 
         <div className="right">
-          <div className="right-upper">
+          {/* <div className="right-upper">
             <div className="blacircle"></div>
             <div className="oraline"></div>
             <div className="oracircle"></div>
-          </div>
+          </div> */}
           <div className="logo-container">
             <div className="logo">
               <img src="https://res.cloudinary.com/cliqtick/image/upload/v1692600339/icons/logo-techie-_IE_uqk1bc.png" />
@@ -46,7 +46,7 @@ export default function Login() {
           <div className="login">
             <div>
               <input
-                className="inpp"
+                className="inpp p-3"
                 id="exampleEmail"
                 name="email"
                 placeholder="Email Address"
@@ -59,7 +59,7 @@ export default function Login() {
 
             <div>
               <input
-                className="inpp"
+                className="inpp p-3 "
                 id="Password"
                 name="password"
                 placeholder="Login with Password"

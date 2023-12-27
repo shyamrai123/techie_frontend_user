@@ -81,12 +81,24 @@
               height: 3rem;
               border-radius: 10px;
               transform: translateX(60%);
-              color: rgb(244, 179, 74);
+              border: 0px solid;
+              box-shadow: 0 0 0.1em;
+              &:focus{
+                border: 3px solid #f4b34a;
+              }
+              
+              ::-ms-input-placeholder{
+                background-color: white;
+              }
+              ::placeholder{
+              color: #f4b34a;
+            }
             }
           }
           .register {
             div {
               cursor: pointer;
+              color: #f4b34a;
             }
           }
           .login-btn {

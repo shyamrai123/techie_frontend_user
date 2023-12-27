@@ -46,7 +46,7 @@ export default function Register() {
           <div className="register">
             <div className="input-container">
               <input
-                className="invalu"
+                className="invalu p-2"
                 id="exampleDatetime"
                 name="username"
                 placeholder="User Name"
@@ -60,7 +60,7 @@ export default function Register() {
             <div className="input-container">
               <input
                 id="Email"
-                className="invalu"
+                className="invalu p-2"
                 name="email"
                 placeholder="Email "
                 type="email"
@@ -73,7 +73,7 @@ export default function Register() {
             <div className="input-container">
               <input
                 id="exampleNumber"
-                className="invalu"
+                className="invalu p-2"
                 name="number"
                 placeholder="Phone"
                 type="text"
@@ -86,7 +86,7 @@ export default function Register() {
             <div className="input-container">
               <input
                 id="Password"
-                className="invalu"
+                className="invalu p-2"
                 name="password"
                 placeholder="Password"
                 type="password"
@@ -99,7 +99,7 @@ export default function Register() {
             <div className="input-container">
               <input
                 id="examplePassword"
-                className="invalu"
+                className="invalu p-2"
                 name="confirmpassword"
                 placeholder="Confirm password"
                 type="password"
@@ -111,7 +111,7 @@ export default function Register() {
           </div>
 
           <div className="AlreadyRegis" onClick={OnHandleClick1}>
-            <div>Already Registered ? Click me</div>
+            <div>Login</div>
           </div>
           <div className="register-btn">
             <div>

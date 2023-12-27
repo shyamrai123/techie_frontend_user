@@ -60,6 +60,7 @@ function SearchSkill() {
               {ski &&
                 ski.map((e) => {
                   return (
+                    <Link to={"/viewJOb/" + e._id} className="link" style={{textDecoration:'solid',color:'black'}}>
                     <div className="jobs-single shadow border container ">
                       <div>
                         {" "}
@@ -97,7 +98,7 @@ function SearchSkill() {
                                 e.skills.split(",").map((i) => {
                                   return (
                                     <div>
-                                      <Link to={"/searchSkill/" + i}>
+                                      <Link to={"/searchSkill/" + i} style={{textDecoration:'solid'}}>
                                         <span className="skills-text bg-secondary">
                                           {i}
                                         </span>
@@ -107,19 +108,12 @@ function SearchSkill() {
                                 })}
                             </div>
                           </div>
+                         <label className="h6">Hirings :</label>
+
                           <div className="d-flex flex-wrap gap-1 container   hirings">
                             <div>
-                              <span 
-                               
-                                className="hiring-01 text-success border border-success rounded-pill"
-                              >
-                                HIRING
-                              </span>
-                            </div>
-                            <div>
                               <span
-                               
-                                className=" hiring-01 bg-secondary text-white rounded-pill"
+                                className=" hiring-01 bg-secondary text-white rounded-pill p-1"
                               >
                                 {e.experience}
                               </span>
@@ -132,7 +126,7 @@ function SearchSkill() {
                                 {e.salary && e.salary == "" ? (
                                   <span className="bg-white"></span>
                                 ) : (
-                                  <span className="bg-secondary text-white rounded-pill">
+                                  <span className="bg-secondary text-white rounded-pill p-1">
                                  
                                     {e.salary}
                                   </span>
@@ -142,7 +136,7 @@ function SearchSkill() {
                             <div>
                               <span
                               
-                                className=" hiring-01 bg-secondary text-white rounded-pill"
+                                className=" hiring-01 bg-secondary text-white rounded-pill p-1"
                               >
                                 {e.openings}
                               </span>
@@ -174,6 +168,7 @@ function SearchSkill() {
                         {e.company_name.slice(0, 2).toUpperCase()}
                       </p>
                     </div>
+</Link>
                   );
                 })}
             </div>

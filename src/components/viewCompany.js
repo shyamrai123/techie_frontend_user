@@ -133,44 +133,46 @@ const ViewCompany = () => {
           <div className="jobs-container">
             {open123.open2 &&
               companyJobs &&
-              companyJobs?.map((e) => {
-                console.log(e?.value);
+              companyJobs.map((e) => {
                 return (
-                  <div className="jobs-single shadow border container ">
+                  <div className="jobs-single container rounded border shadow ">
                     <div>
                       {" "}
                       <div className="card-1">
                         <div>
-                          <h5 className="title">{e?.title}</h5>
+                          <h5 className="title">{e?.value.title}</h5>
                           <h5 className=" h5 text-secondary">
-                            {e?.company_name}
+                            {e?.value.company_name}
                           </h5>
                           <div>
                             <label className="h6">Role :</label>
-                            <span>{e?.role}</span>
+                            <span>{e?.value.role}</span>
                           </div>
                           <div>
                             <label className="h6">Functional Area : </label>
-                            <span>{e?.functionalarea}</span>
+                            <span>{e?.value.functionalarea}</span>
                           </div>
                           <div>
                             <label className="h6">States/Cities :</label>
-                            <span>{e?.States}</span>
+                            <span>{e?.value.States}</span>
                           </div>
                           <div>
                             <label className="h6">Employment Type :</label>
-                            <span>{e?.employmenttype}</span>
+                            <span>{e?.value.employmenttype}</span>
                           </div>
                         </div>
 
                         <div>
                           <label className="h6">Skills :</label>
-                          <div className="skills container">
-                            {e?.skills &&
-                              e?.skills.split(",").map((i) => {
+                          <div
+                            className="skills container"
+                            
+                          >
+                            {e?.value.skills &&
+                              e?.value.skills.split(",").map((i) => {
                                 return (
                                   <div>
-                                    <Link to={"/searchSkill/" + i}>
+                                    <Link to={"/searchSkill/" + i} style={{textDecoration:'solid'}}>
                                       <span className="skills-text bg-secondary">
                                         {i}
                                       </span>
@@ -180,31 +182,37 @@ const ViewCompany = () => {
                               })}
                           </div>
                         </div>
+                        <label className="h6 text-success">Hiring:</label>
                         <div className="d-flex flex-wrap gap-1 container   hirings">
                           <div>
-                            <span className="hiring-01 text-success border border-success rounded-pill">
-                              HIRING
+                            <span
+                             
+                              className=" hiring-01 bg-secondary text-white rounded-pill p-1"
+                            >
+                              {e?.value.experience}
                             </span>
                           </div>
                           <div>
-                            <span className=" hiring-01 bg-secondary text-white rounded-pill">
-                              {e?.experience}
-                            </span>
-                          </div>
-                          <div>
-                            <span className="hiring-01">
-                              {e?.salary && e?.salary == "" ? (
+                            <span
+                            
+                              className="hiring-01"
+                            >
+                              {e?.value.salary && e?.value.salary == "" ? (
                                 <span className="bg-white"></span>
                               ) : (
-                                <span className="bg-secondary text-white rounded-pill">
-                                  {e?.salary}
+                                <span className="bg-secondary text-white rounded-pill p-1">
+                               
+                                  {e?.value.salary}
                                 </span>
                               )}
                             </span>
                           </div>
                           <div>
-                            <span className=" hiring-01 bg-secondary text-white rounded-pill">
-                              {e?.openings}
+                            <span
+                            
+                              className=" hiring-01 bg-secondary text-white rounded-pill p-1"
+                            >
+                              {e?.value.openings}
                             </span>
                           </div>
                         </div>
@@ -212,7 +220,10 @@ const ViewCompany = () => {
                     </div>
 
                     <div className="card-2">
-                      <Link className="view-job-link" to={"/viewJOb/" + e?._id}>
+                      <Link
+                        className="view-job-link"
+                        to={"/viewJOb/" + e?.value._id}
+                      >
                         {" "}
                         <div className="viewjob">
                           View Job <BsArrowRight />
@@ -228,7 +239,7 @@ const ViewCompany = () => {
                         color: "white",
                       }}
                     >
-                      {e?.company_name.slice(0, 2).toUpperCase()}
+                      {e?.value.company_name.slice(0, 2).toUpperCase()}
                     </p>
                   </div>
                 );
@@ -241,7 +252,7 @@ const ViewCompany = () => {
         <div>
           {open123.open3 && (
             <div className="viewcompany-about container ">
-              <div className=" viewcompany-about-inner container border shadow">
+              <div className=" viewcompany-about-inner container rounded  shadow">
                 <div>
                   <p>{aboutCompanyArr}</p>
                 </div>

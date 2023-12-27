@@ -46,9 +46,9 @@ function ViewJob() {
     }
   }, [token]);
   return (
-    <div className="viewjob bg" style={{ backgroundColor: "rgb(243,243,243)" }}>
+    <div className="viewjob bg-white" >
       <Header />
-      <div className="viewjob-details">
+      <div className="viewjob-details bg-white pt-3">
         <div className="viewjob-details-inner container  ">
           <div>
             Home / JobId : {getJobDetails._id && getJobDetails._id.slice(0, 3)}
@@ -75,7 +75,7 @@ function ViewJob() {
           <div className="share   rounded-pill">SHARE JOB</div>
         </div>
       </div>
-
+<hr className="container"/>
        <div className="view-jobdescription-outer ">
        <div className="view-jobdescription container  border shadow ">
         <div className="view-jobdescription-inner conatiner">
@@ -126,7 +126,7 @@ function ViewJob() {
                           {/* <div className="rounded-pill bg-secondary text-white ">
                             {i}
                           </div> */}
-                          <Link to={"/searchSkill/" + i}>
+                          <Link to={"/searchSkill/" + i} style={{textDecoration:'solid'}}>
                             <div className=" rounded-pill bg-secondary text-white   ">
                               {i}
                             </div>
@@ -160,7 +160,7 @@ function ViewJob() {
       </div>
        </div>
 
-      <div className="about-comp container ">
+      <div className="about-comp container  pt-5 pb-3">
         <div>About Company</div>
       </div>
 
@@ -189,31 +189,9 @@ function ViewJob() {
           <div className="abt-comp">About Company</div>
           <div className="abt-data">{getJobDetails && getJobDetails.about}</div>
         </div>
-        <div className="view-comp">
-          <div>
-            <Link
-              className="vc"
-              to={"/viewcompany" / +localStorage.getItem("jobid")}
-            >
-              view company
-            </Link>
-          </div>
-        </div>
+      
 
-        {/* {
-              companyData && 
-              companyData.map((e)=>{
-                return(
-                  <div className="view-comp">
-                      <div>
-                      <Link to={"/viewcompany/"+ e._id}>
-                         View Company
-                     </Link>
-                      </div>
-                  </div>
-                )
-              })
-          } */}
+
       </div>
        </div>
       {/* ///footer// */}

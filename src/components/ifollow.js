@@ -21,6 +21,7 @@ function Ifollow() {
   const followedCompanies = useSelector(
     (state) => state.User.value.followedCompanies
   );
+  console.log(followedCompanies);
 
   useEffect(() => {
     dispatch(getAllCompanies());
@@ -52,6 +53,8 @@ function Ifollow() {
           {followedCompanies &&
             followedCompanies.map((e) => {
               return (
+                <Link  to={"/viewCompany/" + e?.value._id} className="link" style={{textDecoration:'solid',color:'black'}}>
+            
                 <div>
                 <div className="browse-comp-inner   border shadow ">
                 <div className=" comp-profile">
@@ -71,7 +74,7 @@ function Ifollow() {
                     <div className="">
                       <b>{e?.value.company_name}</b>
                     </div>
-                    <div className="">{e?.location}</div>
+                    <div className="">{e?.value?.location}</div>
                   </div>
                 </div>
 
@@ -83,6 +86,7 @@ function Ifollow() {
                 </div>
               </div>
              </div>
+              </Link>
               );
             })}
         </div>
@@ -93,6 +97,8 @@ function Ifollow() {
           {companyData &&
             companyData.map((e) => {
               return (
+                <Link  to={"/viewCompany/" + e?._id} className="link" style={{textDecoration:'solid',color:'black'}}>
+            
                <div>
                   <div className="browse-comp-inner   border shadow ">
                   <div className=" comp-profile">
@@ -124,6 +130,7 @@ function Ifollow() {
                   </div>
                 </div>
                </div>
+              </Link>
               );
             })}
         </div>
